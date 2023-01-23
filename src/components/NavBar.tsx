@@ -5,14 +5,22 @@ import { Icon } from '@iconify/react';
 export default function NavBar(){
 
   return (
-    <header className=''>
+    <header className="flex flex-row justify-between items-center bg-purple-900 py-4 text-white px-4 sm:px-8">
         <div className="brand text-2xl font-bold">Brand</div>
         <nav className="hidden sm:block">
             <ul className="flex flex-row gap-4 font-medium [&>*]:px-2 [&>*]:py-1">
-                <li className="hover:bg-purple-100/80 hover:backdrop-blur-sm rounded-md hover:text-slate-800 ">Home</li>
-                <li className="hover:bg-purple-100/80 hover:backdrop-blur-sm rounded-md hover:text-slate-800 ">Projects</li>
-                <li className="hover:bg-purple-100/80 hover:backdrop-blur-sm rounded-md hover:text-slate-800 ">Members</li>
-                <li className="hover:bg-purple-100/80 hover:backdrop-blur-sm rounded-md hover:text-slate-800 ">About Iknite</li>
+                <li className="hover:bg-purple-100/80 hover:backdrop-blur-sm rounded-md hover:text-slate-800 ">
+                <Icon icon="material-symbols:add-home" className="inline-block mr-2 text-base" />
+                Home</li>
+                <li className="hover:bg-purple-100/80 hover:backdrop-blur-sm rounded-md hover:text-slate-800 ">
+                <Icon icon="grommet-icons:projects" className="inline-block mr-2 text-sm" />
+                Projects</li>
+                <li className="hover:bg-purple-100/80 hover:backdrop-blur-sm rounded-md hover:text-slate-800 ">
+                <Icon icon="ri:team-fill" className="inline-block mr-2 text-base" />
+                Members</li>
+                <li className="hover:bg-purple-100/80 hover:backdrop-blur-sm rounded-md hover:text-slate-800 ">
+                <Icon icon="mdi:about"  className="inline-block mr-2 text-base" />
+                About Iknite</li>
             </ul>
         </nav>
         <div className="auth hidden  sm:flex flex-row items-center gap-8">

@@ -6,7 +6,7 @@ function App() {
   return (
     <div>
         <NavBar />
-        <div className="container mx-auto">
+        <div className="container mx-auto px-4 sm:px-8 xl:px-12">
         <Home />
         </div>
     </div>
