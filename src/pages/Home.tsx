@@ -22,15 +22,15 @@ function Home() {
             </div>
         </section>
         <section className="py-5">
-            <h1 className="bg-purple-900 py-4 px-2 my-5 max-w-xs text-white text-2xl font-semibold">Popular Projects</h1>
-            <div className="cards flex flex-wrap gap-4 sm:[&>*]:max-w-xs [&>*]:w-full justify-start">
+            <h1 className="py-4 px-2 my-5 max-w-xs text-slate-800 text-2xl sm:text-3xl lg:text-4xl font-semibold">Popular Projects</h1>
+            <div className="cards flex flex-wrap gap-4 [&>*]:max-w-xs justify-center sm:justify-start">
                 <Project />
                 <Project />
             </div>
         </section>
         <section className="py-5">
-            <h1 className="bg-purple-900 py-4 px-2 my-5 max-w-xs text-white text-2xl font-semibold">Senior Engineers</h1>
-            <div className="cards flex gap-4  justify-start">
+            <h1 className="rounded-md py-4 px-2 my-8 max-w-xs  text-2xl sm:text-3xl lg:text-4xl font-semibold">Senior Engineers</h1>
+            <div className="cards flex flex-wrap gap-4 [&>*]:max-w-xs justify-center sm:justify-start">
                 <Member />
                 <Member />
                 <Member />
@@ -42,21 +42,26 @@ function Home() {
 }
 
 function Member() {
-    return (<div className=" p-8 border border-transparent hover:border-gray-200 rounded-md w-full  hover:shadow-inner flex flex-col gap-4 items-center justify-center text-center max-w-xs cursor-pointer hover:bg-purple-50">
-            <div className="avatar border w-24 h-auto aspect-square rounded-full bg-purple-100 flex justify-center items-center text-3xl">
+    return (
+    <div className="p-8 border border-transparent hover:border-gray-200 rounded-md w-full  hover:shadow-inner flex flex-row gap-4 max-w-fit cursor-pointer bg-slate-100">
+        <div className="avatar border w-20 h-fit aspect-square rounded-full bg-purple-50 flex justify-center items-center text-3xl">
             <Icon icon="mdi:user" className='text-purple-900'/>
-            </div>
-            <div className=" flex flex-col justify-center items-center">
-                <div className="reviews flex flex-row text-purple-900 text-2xl">
+        </div>
+        <div className=" flex flex-col justify-start items-start">
+            <h1 className="font-semibold text-slate-800 text-lg">Tambua Evaristus</h1>
+            <span className="text-sm text-slate-600">Lead Software Developer</span>
+            <div className="flex flex-row gap-2">
+                <div className="reviews flex flex-row text-purple-900 py-1">
                 <Icon icon="material-symbols:star" />
                 <Icon icon="material-symbols:star" />
                 <Icon icon="material-symbols:star" />
                 <Icon icon="material-symbols:star" />
                 </div>
-                <h1 className="font-semibold text-slate-800 text-lg">Tambua Evaristus</h1>
-                <span className="text-sm text-slate-600">Lead Software Developer</span>
+                <span className="text-purple-800 text-sm">( 25 reviews)</span>
             </div>
-        </div>)
+        </div>
+    </div>
+    )
 }
 function Project() {
     return (
