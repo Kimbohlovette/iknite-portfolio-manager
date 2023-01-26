@@ -1,8 +1,11 @@
 import React from 'react'
+import MemberProfile from './MemberProfile'
 
 function Members() {
   return (
-    <div>Members</div>
+    <div>
+        <MemberProfile />
+    </div>
   )
 }
 
