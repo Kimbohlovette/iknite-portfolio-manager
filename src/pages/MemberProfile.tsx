@@ -88,7 +88,8 @@ function ContactInfo():JSX.Element {
                         type="text"
                         id="name"
                         name="name"
-                        className="border p-2 rounded-md focus:outline-none w-full min-w-0" />
+                        placeholder="John Doe"
+                        className="border p-2 rounded-md focus:outline-none w-full min-w-0 placeholder:text-sm placeholder:text-slate-400 placeholder:font-extralight text-slate-600" />
                 </div>
                 <div className="email w-full">
                     <label htmlFor="email"
@@ -96,7 +97,8 @@ function ContactInfo():JSX.Element {
                     <input
                         id="email"
                         name="email"
-                        className="border p-2 rounded-md focus:outline-none w-full min-w-0"/>
+                        placeholder="johndoe@domain.com"
+                        className="border p-2 rounded-md focus:outline-none w-full min-w-0 placeholder:text-slate-400 placeholder:font-extralight placeholder:text-sm text-slate-600"/>
                 </div>
                 <div className="message">
                     <label htmlFor="message"
@@ -108,9 +110,10 @@ function ContactInfo():JSX.Element {
                     cols= {30}
                     rows={4}
                     placeholder="Write message here..."
-                    className="border p-2 rounded-md focus:outline-none w-full min-w-0">
+                    className="border p-2 rounded-md focus:outline-none w-full min-w-0 placeholder:text-sm placeholder:text-slate-400 placeholder:font-extralight text-slate-600">
                     </textarea>
                 </div>
+                <button className="py-2 px-4 my-2 text-sm bg-purple-900 hover:bg-purple-800 hover:scale-[1.01] text-slate-50 rounded-md focus:ring-2 ring-purple-900 ring-offset-1 focus:shadow-lg shadow-purple-500">Send message</button>
 
             </div>
         </div>
@@ -120,8 +123,15 @@ function ContactInfo():JSX.Element {
 
 function Social() {
     return (
-        <div className="rounded-md w-full shadow-inner border p-4 my-8">
-           <h1 className="py-4 text-xl font-medium">Contact Information</h1> 
+        <div className="rounded-md w-full shadow-inner border p-4 my-8 sm:text-center">
+           <h1 className="py-4 text-xl font-medium">Contact Information</h1>
+           <div className="flex flex-row sm:justify-center my-2 gap-4 text-4xl text-purple-900 [&>*]:cursor-pointer hover:[&>*]:scale-[1.03]">
+                <Icon icon="mdi:github" />
+                <Icon icon="mdi:linkedin" />
+                <Icon icon="ant-design:twitter-square-filled" />
+                <Icon icon="fe:facebook" />
+                <Icon icon="ri:instagram-fill" />
+           </div>
         </div>
     )
 }
