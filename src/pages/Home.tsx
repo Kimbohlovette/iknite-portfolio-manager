@@ -26,6 +26,8 @@ function Home() {
             <div className="cards flex flex-wrap gap-4 [&>*]:max-w-xs justify-center sm:justify-start">
                 <Project />
                 <Project />
+                <Project />
+                <Project />
             </div>
         </section>
         <section className="py-5">
@@ -34,6 +36,15 @@ function Home() {
                 <Member />
                 <Member />
                 <Member />
+                <Member />
+            </div>
+        </section>
+        <section className="py-5">
+            <h1 className="py-4 px-2 my-5 max-w-xs text-slate-800 text-2xl sm:text-3xl lg:text-4xl font-semibold">Top News & Events</h1>
+            <div className="cards flex flex-wrap gap-4 justify-center sm:justify-start sm:divide-y-0">
+                <Event />
+                <Event />
+                <Event />
             </div>
         </section>
     
@@ -41,6 +52,24 @@ function Home() {
   );
 }
 
+function Event() {
+    return (
+        <div className="flex flex-col [@media(min-width:520px)]:flex-row gap-2 p-4 rounded-md max-w-3xl hover:bg-slate-100 cursor-pointer">
+            <div className="caption w-full max-w-xs">
+                <img src="https://i0.wp.com/www.afrohustler.com/wp-content/uploads/2017/11/feature.jpg?fit=770%2C513&ssl=1" className="max-h-[12rem] aspect-video object-center object-cover overflow-hidden rounded-md" alt="" />
+            </div>
+            <div className="text p-2 rounded-md">
+                <div>
+                    <h1 className="text-lg font-semibold text-slate-800">SMCON23 - Silicon Mount Conference 2023</h1>
+                    <p className="text-slate-600 text-sm p-2 rounded-md">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laboriosam neque harum adipisci atque odio...</p>
+                </div>
+                <div className="date italic">
+                    November 11, 2023
+                </div>
+            </div>
+        </div>
+    )
+}
 function Member() {
     return (
     <div className="p-8 border border-transparent hover:border-gray-200 rounded-md w-full  hover:shadow-inner flex flex-row gap-4 max-w-fit cursor-pointer bg-slate-100">
@@ -65,7 +94,7 @@ function Member() {
 }
 function Project() {
     return (
-        <div className="card w-full sm:max-w-xs rounded-md p-4 shadow-lg border">
+        <div className="card w-full sm:max-w-xs rounded-md p-4 shadow-lg border cursor-pointer">
         <div className="image my-2  rounded-md overflow-hidden">
             <img src="https://pbs.twimg.com/media/Fa2Di9bWIAEYTtk?format=jpg&name=small" className="object-cover object-center aspect-video" alt="" />
         </div>
