@@ -33,15 +33,20 @@ function MemberProfile() {
                 <li className="border-b-4 pb-1 border-purple-800">Contact information</li>
             </ul>
         </header>
-        <Routes>
-            <Route path="/members/lovette/contactinfo" element={<ContactInfo />}></Route>
-        </Routes>
         <ContactInfo />
         <Social />
     </div>
   )
 }
 
+
+function EducationAndQualification() {
+    return (
+        <div>
+
+        </div>
+    )
+}
 
 function ContactInfo():JSX.Element {
     return (
@@ -66,8 +71,8 @@ function ContactInfo():JSX.Element {
                     Mobile & Whatsapp</h2>
 
                     <ul className="text-sm text-slate-500 px-10 flex flex-col gap-2 py-2 list-disc">
-                        <li>kimbohlovette@gmail.com</li>
-                        <li>kimboh.lovette@iknite.space</li>
+                        <li>+237 654 11 59 22</li>
+                        <li>+237 671 92 70 65</li>
                     </ul>
                 </li>
                 <li>
