@@ -1,6 +1,6 @@
 import { Icon } from '@iconify/react'
 import React from 'react'
-import { Link, Outlet } from 'react-router-dom'
+import { NavLink, Outlet } from 'react-router-dom'
 
 function MemberProfile() {
   return (
@@ -28,9 +28,9 @@ function MemberProfile() {
 
         <header className="w-full py-4 my-2 border-b text-slate-600">
             <div className="flex flex-row flex-wrap gap-8">
-                <Link to="/members/education">Education & Qualification</Link>
-                <Link to="/members/contributions">Projects & Contributions</Link>
-                <Link to="/members" className="border-b-4 pb-1 border-purple-800">Contact information</Link>
+                <NavLink to="/members/" className={({isActive})=> isActive?"border-b-4 pb-1 border-purple-800":""}>Education & Qualification</NavLink>
+                <NavLink to="/members/contributions" className={({isActive})=> isActive?"border-b-4 pb-1 border-purple-800":""}>Projects & Contributions</NavLink>
+                <NavLink to="/members/contacts" className={({isActive})=> isActive?"border-b-4 pb-1 border-purple-800":""}>Contact information</NavLink>
             </div>
         </header>
         <Outlet />
@@ -50,7 +50,7 @@ export function Education() {
 export function Contributions() {
     return (
         <div className="my-5">
-                        <table className="w-full text-center divide-y">
+            <table className="w-full divide-y">
                 <thead className="bg-purple-900 text-white [&>*]:py-4 text-xs">
                     <td></td>
                     <td>Project</td>

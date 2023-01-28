@@ -52,9 +52,9 @@ const router = createBrowserRouter(
                     path: '/members', 
                     element: <Members />,
                     children: [
-                       { path: '/members/', element: <ContactInfo />},
-                       { path: '/members/education', element: <Education />},
+                       { path: '/members/', element: <Education />},
                        { path: '/members/contributions', element: <Contributions />},
+                       { path: '/members/contacts', element: <ContactInfo />},
                     ]
                 },
                 {   path: '/iknite', element: <Iknite />},
