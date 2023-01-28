@@ -1,6 +1,6 @@
 import { Icon } from '@iconify/react'
 import React from 'react'
-import { Route, Routes } from 'react-router-dom'
+import { Link, Outlet } from 'react-router-dom'
 
 function MemberProfile() {
   return (
@@ -27,102 +27,154 @@ function MemberProfile() {
         </div>
 
         <header className="w-full py-4 my-2 border-b text-slate-600">
-            <ul className="flex flex-row flex-wrap gap-8">
-                <li className="">Education & Qualification</li>
-                <li>Projects & Contributions</li>
-                <li className="border-b-4 pb-1 border-purple-800">Contact information</li>
-            </ul>
+            <div className="flex flex-row flex-wrap gap-8">
+                <Link to="/members/education">Education & Qualification</Link>
+                <Link to="/members/contributions">Projects & Contributions</Link>
+                <Link to="/members" className="border-b-4 pb-1 border-purple-800">Contact information</Link>
+            </div>
         </header>
-        <ContactInfo />
-        <Social />
+        <Outlet />
     </div>
   )
 }
 
 
-function EducationAndQualification() {
+export function Education() {
     return (
-        <div>
+        <div className="my-5">
 
         </div>
     )
 }
 
-function ContactInfo():JSX.Element {
+export function Contributions() {
     return (
-        <div className="rounded-md w-full shadow-inner border p-4 my-8">
-        <h1 className="py-4 text-xl font-medium">Contact Information</h1>
-        <div className="flex flex-col gap-4 sm:flex-row">
-            <ul className="flex-1 flex flex-col gap-4">
-                <li>
-                    <h2 className="text-purple-900 font-medium">
-                    <Icon icon="ic:baseline-email" className="inline-block text-xl mr-2" />
-                        Email
-                    </h2>
-
-                    <ul className="text-sm text-slate-500 px-10 flex flex-col gap-2 py-2 list-disc">
-                        <li>kimbohlovette@gmail.com</li>
-                        <li>kimboh.lovette@iknite.space</li>
-                    </ul>
-                </li>
-                <li>
-                    <h2 className="text-purple-900 font-medium">
-                    <Icon icon="material-symbols:mobile-friendly-rounded" className="inline-block text-xl mr-2" />
-                    Mobile & Whatsapp</h2>
-
-                    <ul className="text-sm text-slate-500 px-10 flex flex-col gap-2 py-2 list-disc">
-                        <li>+237 654 11 59 22</li>
-                        <li>+237 671 92 70 65</li>
-                    </ul>
-                </li>
-                <li>
-                    <h2 className="text-purple-900 font-medium">
-                    <Icon icon="ph:address-book-fill" className="inline-block text-xl mr-2" />
-                    Address Lines</h2>
-                    <ul className="text-sm text-slate-500 px-10 flex flex-col gap-2 py-2 list-disc">
-                        <li>Razel street, molyko buea</li>
-                        <li>Kitchen corner, Untarred malingo, Molyko Buea</li>
-                    </ul>
-                </li>
-            </ul>
-            <div className="form flex-1">
-                <div className="name w-full">
-                    <label htmlFor="name"
-                        className="block py-2">Full Names</label>
-                    <input 
-                        type="text"
-                        id="name"
-                        name="name"
-                        placeholder="John Doe"
-                        className="border p-2 rounded-md focus:outline-none w-full min-w-0 placeholder:text-sm placeholder:text-slate-400 placeholder:font-extralight text-slate-600" />
-                </div>
-                <div className="email w-full">
-                    <label htmlFor="email"
-                        className="block py-2">Email</label>
-                    <input
-                        id="email"
-                        name="email"
-                        placeholder="johndoe@domain.com"
-                        className="border p-2 rounded-md focus:outline-none w-full min-w-0 placeholder:text-slate-400 placeholder:font-extralight placeholder:text-sm text-slate-600"/>
-                </div>
-                <div className="message">
-                    <label htmlFor="message"
-                        className="block py-2"
-                        >Message</label>
-                    <textarea 
-                    name="message"
-                    id="message"
-                    cols= {30}
-                    rows={4}
-                    placeholder="Write message here..."
-                    className="border p-2 rounded-md focus:outline-none w-full min-w-0 placeholder:text-sm placeholder:text-slate-400 placeholder:font-extralight text-slate-600">
-                    </textarea>
-                </div>
-                <button className="py-2 px-4 my-2 text-sm bg-purple-900 hover:bg-purple-800 hover:scale-[1.01] text-slate-50 rounded-md focus:ring-2 ring-purple-900 ring-offset-1 focus:shadow-lg shadow-purple-500">Send message</button>
-
-            </div>
+        <div className="my-5">
+                        <table className="w-full text-center divide-y">
+                <thead className="bg-purple-900 text-white [&>*]:py-4 text-xs">
+                    <td></td>
+                    <td>Project</td>
+                    <td>Contributors</td>
+                    <td>Status</td>
+                </thead>
+                <tr className="[&>*]:py-4 hover:bg-slate-200 text-slate-500 rounded-sm">
+                    <td>icon</td>
+                    <td className="flex-1">Bohikor</td>
+                    <td className="flex flex-row justify-start items-center">
+                        <Avatar />
+                        <Avatar />
+                        <Avatar />
+                        <Avatar />
+                    </td>
+                    <td className="">done</td>
+                </tr>
+                <tr className="[&>*]:py-4 hover:bg-slate-200 text-slate-500 rounded-sm">
+                    <td>icon</td>
+                    <td className="flex-1">Cliqets</td>
+                    <td className="flex flex-row justify-start items-center">
+                        <Avatar />
+                        <Avatar />
+                    </td>
+                    <td className="">progress</td>
+                </tr>
+            </table>
         </div>
-    </div>
+    )
+}
+
+
+// ============== Helper components ===================
+
+function Avatar(){
+    return (
+        <div className="max-h-8 overflow-hidden rounded-full shadow-inner border aspect-square">
+            <img src="https://pbs.twimg.com/profile_images/1605890194200207360/4sRtb9LT_400x400.jpg" className="h" alt="" />
+        </div>
+    )
+}
+
+// ====================================================
+
+
+
+export function ContactInfo():JSX.Element {
+    return (
+        <div>
+            <div className="rounded-md w-full shadow-inner border p-4 my-8">
+                <h1 className="py-4 text-xl font-medium">Contact Information</h1>
+                <div className="flex flex-col gap-4 sm:flex-row">
+                    <ul className="flex-1 flex flex-col gap-4">
+                        <li>
+                            <h2 className="text-purple-900 font-medium">
+                            <Icon icon="ic:baseline-email" className="inline-block text-xl mr-2" />
+                                Email
+                            </h2>
+
+                            <ul className="text-sm text-slate-500 px-10 flex flex-col gap-2 py-2 list-disc">
+                                <li>kimbohlovette@gmail.com</li>
+                                <li>kimboh.lovette@iknite.space</li>
+                            </ul>
+                        </li>
+                        <li>
+                            <h2 className="text-purple-900 font-medium">
+                            <Icon icon="material-symbols:mobile-friendly-rounded" className="inline-block text-xl mr-2" />
+                            Mobile & Whatsapp</h2>
+
+                            <ul className="text-sm text-slate-500 px-10 flex flex-col gap-2 py-2 list-disc">
+                                <li>+237 654 11 59 22</li>
+                                <li>+237 671 92 70 65</li>
+                            </ul>
+                        </li>
+                        <li>
+                            <h2 className="text-purple-900 font-medium">
+                            <Icon icon="ph:address-book-fill" className="inline-block text-xl mr-2" />
+                            Address Lines</h2>
+                            <ul className="text-sm text-slate-500 px-10 flex flex-col gap-2 py-2 list-disc">
+                                <li>Razel street, molyko buea</li>
+                                <li>Kitchen corner, Untarred malingo, Molyko Buea</li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <div className="form flex-1">
+                        <div className="name w-full">
+                            <label htmlFor="name"
+                                className="block py-2">Full Names</label>
+                            <input 
+                                type="text"
+                                id="name"
+                                name="name"
+                                placeholder="John Doe"
+                                className="border p-2 rounded-md focus:outline-none w-full min-w-0 placeholder:text-sm placeholder:text-slate-400 placeholder:font-extralight text-slate-600" />
+                        </div>
+                        <div className="email w-full">
+                            <label htmlFor="email"
+                                className="block py-2">Email</label>
+                            <input
+                                id="email"
+                                name="email"
+                                placeholder="johndoe@domain.com"
+                                className="border p-2 rounded-md focus:outline-none w-full min-w-0 placeholder:text-slate-400 placeholder:font-extralight placeholder:text-sm text-slate-600"/>
+                        </div>
+                        <div className="message">
+                            <label htmlFor="message"
+                                className="block py-2"
+                                >Message</label>
+                            <textarea 
+                            name="message"
+                            id="message"
+                            cols= {30}
+                            rows={4}
+                            placeholder="Write message here..."
+                            className="border p-2 rounded-md focus:outline-none w-full min-w-0 placeholder:text-sm placeholder:text-slate-400 placeholder:font-extralight text-slate-600">
+                            </textarea>
+                        </div>
+                        <button className="py-2 px-4 my-2 text-sm bg-purple-900 hover:bg-purple-800 hover:scale-[1.01] text-slate-50 rounded-md focus:ring-2 ring-purple-900 ring-offset-1 focus:shadow-lg shadow-purple-500">Send message</button>
+
+                    </div>
+                </div>
+            </div>
+            <Social />
+        </div>
     )
 }
 
