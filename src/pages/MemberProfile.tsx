@@ -27,10 +27,19 @@ function MemberProfile() {
         </div>
 
         <header className="w-full py-4 my-2 border-b text-slate-600">
-            <div className="flex flex-row flex-wrap gap-8">
-                <NavLink to="/members/" className={({isActive})=> isActive?"border-b-4 pb-1 border-purple-800":""}>Education & Qualification</NavLink>
-                <NavLink to="/members/contributions" className={({isActive})=> isActive?"border-b-4 pb-1 border-purple-800":""}>Projects & Contributions</NavLink>
-                <NavLink to="/members/contacts" className={({isActive})=> isActive?"border-b-4 pb-1 border-purple-800":""}>Contact information</NavLink>
+            <div className="flex flex-row flex-wrap gap-8 [&>*]:pb-1">
+                <NavLink to="/members" className={({isActive})=> isActive?" border-purple-800 border-b-4":"border-b-transparent border-b-4"} end>
+                    Education
+                    <span className="hidden sm:inline-block">/Qualifications</span>
+                </NavLink>
+                <NavLink to="/members/contributions" className={({isActive})=> isActive?"border-b-4 pb-1 border-purple-800":""}>
+                    Projects 
+                    <span className="hidden sm:inline-block"> /Contributions</span>
+                </NavLink>
+                <NavLink to="/members/contacts" className={({isActive})=> isActive?"border-b-4 pb-1 border-purple-800":""}>
+                    <span className="hidden sm:block">Contact information</span>
+                    <span className="sm:hidden">Contacts</span>
+                    </NavLink>
             </div>
         </header>
         <Outlet />
@@ -41,8 +50,9 @@ function MemberProfile() {
 
 export function Education() {
     return (
-        <div className="my-5">
-
+        <div className="my-8 divide-y [&>*]:py-4">
+            <Certificate />
+            <Certificate />
         </div>
     )
 }
@@ -50,14 +60,14 @@ export function Education() {
 export function Contributions() {
     return (
         <div className="my-5">
-            <table className="w-full divide-y">
-                <thead className="bg-purple-900 text-white [&>*]:py-4 text-xs">
+            <table className="w-full divide-y text-sm">
+                <thead className="bg-purple-900 text-white [&>*]:py-4">
                     <td></td>
                     <td>Project</td>
                     <td>Contributors</td>
                     <td>Status</td>
                 </thead>
-                <tr className="[&>*]:py-4 hover:bg-slate-200 text-slate-500 rounded-sm">
+                <tr className="[&>*]:py-2 hover:bg-slate-200 text-slate-500 rounded-sm">
                     <td>icon</td>
                     <td className="flex-1">Bohikor</td>
                     <td className="flex flex-row justify-start items-center">
@@ -66,16 +76,16 @@ export function Contributions() {
                         <Avatar />
                         <Avatar />
                     </td>
-                    <td className="">done</td>
+                    <td className="text-green-600">completed</td>
                 </tr>
-                <tr className="[&>*]:py-4 hover:bg-slate-200 text-slate-500 rounded-sm">
+                <tr className="[&>*]:py-2 hover:bg-slate-200 text-slate-500 rounded-sm">
                     <td>icon</td>
                     <td className="flex-1">Cliqets</td>
                     <td className="flex flex-row justify-start items-center">
                         <Avatar />
                         <Avatar />
                     </td>
-                    <td className="">progress</td>
+                    <td className="text-blue-500">in progress</td>
                 </tr>
             </table>
         </div>
@@ -84,6 +94,16 @@ export function Contributions() {
 
 
 // ============== Helper components ===================
+function Certificate(){
+    return (
+        <div>
+            <h1 className="my-1 text-lg text-slate-700 font-semibold">BSc. Mathematics and Computer Science</h1>
+            <p className="py-1 text-slate-500">University of Buea</p>
+            <p className="py-1 text-purple-900">From 2017 to 2020</p>
+            <div className="text-slate-600 my-2">Remark: <span className="px-4 py-1 rounded-lg text-sm bg-purple-200">Excellent</span></div>
+        </div>
+    )
+}
 
 function Avatar(){
     return (
