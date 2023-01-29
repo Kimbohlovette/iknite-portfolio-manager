@@ -6,7 +6,7 @@ function Members() {
     <div className="my-5">
         <h1 className="text-2xl font-medium my-2">Members</h1>
 
-        <div className="filters flex flex-row flex-wrap gap-2">
+        <div className="filters flex flex-row flex-wrap gap-2 [&>*:focus]:shadow [&>*:focus]:shadow-purple-200 [&>*:focus]:border-purple-400">
             <input 
             type="search" 
             name="search" 
@@ -19,37 +19,46 @@ function Members() {
             <button className="border py-2 px-4 rounded-md text-slate-600 text-sm w-fit">Developers</button>
         </div>
 
-        <div className="members my-8 ">
-            <Member />
-            <Member />
-            <Member />
-        </div>
+        <table className="border-spacing-y-4 border-separate w-full text-left">
+            <thead>
+                <tr className="text-sm sm:text-base [&>*]:py-1 text-purple-900/60 text-center sm:text-left">
+                    <th></th>
+                    <th>Full Names</th>
+                    <th className="hidden sm:block">Level</th>
+                    <th>Contributions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <Member />
+                <Member />
+                <Member />
+            </tbody>
+        </table>
     </div>
   )
 }
 
 function Member(){
     return (
-        <div className="member flex flex-row items-center [&>*]:grow gap-4 py-2 hover:bg-purple-200 px-2 rounded-sm cursor-pointer">
-                
-            <div>
+        <tr className="gap-y-5 px-2 [&>*]:py-2 rounded-sm cursor-pointer hover:bg-slate-100">
+            <td className="flex justify-center">
                 <div className="avatar rounded-full aspect-squre border p-4 flex items-center justify-center w-fit">
-                <Icon icon="mdi:user" color="purple"/>
+                    <Icon icon="mdi:user"/>
                 </div>
-            </div>
+            </td>
 
-            <div className="name">
+            <td>
                 <h1 className="text-sm sm:text-base text-slate-600">Kimboh Lovette Bantar</h1>
                 <span className="text-xs sm:text-sm font-extralight text-slate-400 italic">Software Developer</span>
-            </div>
-            <div className="hidden sm:block">
-                <span className="text-slate-400 text-sm">Trainee</span>
-            </div>
-            <div className="num_projects text-purple-900">
+            </td>
+            <td className="hidden sm:block text-slate-400">
+                Trainee
+            </td>
+            <td className="text-slate-600 text-center sm:text-left">
                 35
-            </div>
+            </td>
         
-        </div>
+        </tr>
     )
 }
 
