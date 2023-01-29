@@ -32,6 +32,13 @@ function Members() {
                 <Member />
                 <Member />
                 <Member />
+                <Member />
+                <Member />
+                <Member />
+                <Member />
+                <Member />
+                <Member />
+                <Member />
             </tbody>
         </table>
     </div>
