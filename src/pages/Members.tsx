@@ -27,16 +27,16 @@ function Members() {
             </div>
         </div>
 
-        <table className="border-spacing-y-2 border-separate w-full text-left">
+        <table className="my-5 border-spacing-y-2 border-separate w-full text-left">
             <thead>
-                <tr className="text-sm sm:text-base [&>*]:py-1 text-purple-900/60 text-center sm:text-left">
+                <tr className="text-sm sm:text-base [&>*]:py-1 text-slate-800 text-center sm:text-left">
                     <th></th>
                     <th>Full Names</th>
                     <th className="hidden sm:block">Level</th>
                     <th>Contributions</th>
                 </tr>
             </thead>
-            <tbody>
+            <tbody className="text-sm">
                 <Member />
                 <Member />
                 <Member />
@@ -63,13 +63,13 @@ function Member(){
             </td>
 
             <td>
-                <h1 className="text-sm sm:text-base text-slate-600">Kimboh Lovette Bantar</h1>
+                <h1 className="">Kimboh Lovette Bantar</h1>
                 <span className="text-xs sm:text-sm font-extralight text-slate-400 italic">Software Developer</span>
             </td>
             <td className="hidden sm:block text-slate-400">
                 Trainee
             </td>
-            <td className="text-slate-600 text-center sm:text-left">
+            <td className="text-center sm:text-left">
                 35
             </td>
         

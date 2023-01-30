@@ -105,7 +105,7 @@ function Certificate(){
     )
 }
 
-function Avatar(){
+export function Avatar(){
     return (
         <div className="max-h-8 overflow-hidden rounded-full shadow-inner border aspect-square">
             <img src="https://pbs.twimg.com/profile_images/1605890194200207360/4sRtb9LT_400x400.jpg" className="h" alt="" />
