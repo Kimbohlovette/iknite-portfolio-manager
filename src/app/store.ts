@@ -3,7 +3,7 @@ import data from '../shared/data.json'
 
 let initialDataState: any = {};
 
-console.log(data)
+console.log(data.members)
 
 const dataSlice = createSlice({
     name: "data",

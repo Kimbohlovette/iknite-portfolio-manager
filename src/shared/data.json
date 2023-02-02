@@ -1,5 +1,6 @@
 {
-	"members": [{
+	"members": [
+        {
 			"id": 1,
 			"name": "Kimboh Lovette",
 			"level": "Trainee",
@@ -650,7 +651,8 @@
 			}]
 		}
 	],
-	"projects": [{
+	"projects": [
+        {
 			"id": 1,
 			"name": "Adobe Homepage Clone",
 			"desc": "A clone of the adobe website with html/css only",
@@ -661,7 +663,7 @@
 				"https://pbs.twimg.com/media/Fa2Di9bWIAEYTtk?format=jpg&name=small"
 			],
 			"contributors": [1, 2, 4]
-		},
+        },
 		{
 			"id": 2,
 			"name": "Besnik Dribble Design with Bootstrap",
