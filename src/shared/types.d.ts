@@ -1,11 +1,10 @@
 export interface Qualification {
     institution: string
     degree: string
-    remark: string
+    remark?: string
     startDate: string
     endDate: string
 }
-
 
 export interface Contacts {
     emails: string[],
@@ -40,7 +39,15 @@ export interface ProjectType {
     id: number
     title: string
     desc: string
-    status: 'in progress'|'completed'|'not started'
+    status: string
     demoImages: string[]
     contributors: number[]
+}
+
+export interface Data {
+    members: MemberType[]
+    projects: ProjectType[]
+    events?: any[]
+    aboutIknite: any
+
 }

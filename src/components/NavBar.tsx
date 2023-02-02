@@ -6,7 +6,6 @@ import { useAppSelector } from '../app/hooks';
 
 export default function NavBar(): JSX.Element {
     const isAuthenticated = useAppSelector(state=> state.auth.isAuthenticated)
-    console.log("Expected boolean value: ", isAuthenticated)
     return (
         <header className="flex flex-row justify-between items-center bg-purple-900 py-4 text-white px-4 sm:px-8">
             <div className="brand text-2xl font-bold">Brand</div>

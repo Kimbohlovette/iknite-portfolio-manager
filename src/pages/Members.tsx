@@ -2,9 +2,16 @@ import { Icon } from '@iconify/react'
 import React from 'react'
 import { BsPlus } from 'react-icons/bs'
 import {  useAppSelector } from '../app/hooks';
+import { MemberType } from '../shared/types';
 
 function Members() {
     const isAuthenticated = useAppSelector(state => state.auth.isAuthenticated)
+    const members = useAppSelector( state => state.data.members)
+    const formatedMembers = members.map( (member, key) => {
+        return (
+            <Member member ={member} key={key} />
+        )
+    })
   return (
     <div className="my-5">
         <h1 className="text-2xl font-medium my-2">Members</h1>
@@ -42,40 +49,31 @@ function Members() {
                 </tr>
             </thead>
             <tbody className="text-sm">
-                <Member />
-                <Member />
-                <Member />
-                <Member />
-                <Member />
-                <Member />
-                <Member />
-                <Member />
-                <Member />
-                <Member />
+                {formatedMembers}
             </tbody>
         </table>
     </div>
   )
 }
 
-function Member(){
+function Member(prop: {member: MemberType}){
     return (
         <tr className="gap-y-5 px-2 [&>*]:py-2 rounded-sm cursor-pointer hover:bg-slate-100">
             <td className="flex justify-center">
-                <div className="avatar rounded-full aspect-square border p-4 flex items-center justify-center w-fit">
-                    <Icon icon="mdi:user"/>
+                <div className="avatar rounded-full aspect-square border flex items-center justify-center w-fit">
+                    <img src={prop.member.profileImage} className="h-12 aspect-square w-auto object-center object-cover rounded-full" alt="" />
                 </div>
             </td>
 
             <td>
-                <h1 className="">Kimboh Lovette Bantar</h1>
-                <span className="text-xs sm:text-sm font-extralight text-slate-400 italic">Software Developer</span>
+                <h1 className="">{prop.member.name}</h1>
+                <span className="text-xs sm:text-sm font-extralight text-slate-400 italic">{prop.member.dept}</span>
             </td>
             <td className="hidden sm:block text-slate-400">
-                Trainee
+                {prop.member.level}
             </td>
             <td className="text-center sm:text-left">
-                35
+                {prop.member.contributions.length}
             </td>
         
         </tr>

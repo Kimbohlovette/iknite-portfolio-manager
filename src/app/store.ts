@@ -1,9 +1,8 @@
 import { configureStore, ThunkAction, Action, createSlice } from '@reduxjs/toolkit';
 import data from '../shared/data.json'
+import { Data } from '../shared/types';
 
-let initialDataState: any = {};
-
-console.log(data.members)
+let initialDataState: Data = data;
 
 const dataSlice = createSlice({
     name: "data",
