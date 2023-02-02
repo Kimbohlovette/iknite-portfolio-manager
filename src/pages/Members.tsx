@@ -1,8 +1,10 @@
 import { Icon } from '@iconify/react'
 import React from 'react'
 import { BsPlus } from 'react-icons/bs'
+import {  useAppSelector } from '../app/hooks';
 
 function Members() {
+    const isAuthenticated = useAppSelector(state => state.auth.isAuthenticated)
   return (
     <div className="my-5">
         <h1 className="text-2xl font-medium my-2">Members</h1>
@@ -19,12 +21,15 @@ function Members() {
                 <button className="border py-2 px-4 rounded-md text-slate-600 text-sm w-fit">Designers</button>
                 <button className="border py-2 px-4 rounded-md text-slate-600 text-sm w-fit">Developers</button>
             </div>
-            <div className="">
-                <button className="text-slate-50 bg-purple-900 rounded-md py-2 px-4 text-sm">
-                    <BsPlus className="inline mr-1 align-center text-xl"/>
-                    <span className="hidden sm:inline">Add member</span>
-                </button>
-            </div>
+            { 
+                isAuthenticated && 
+                <div className="">
+                    <button className="text-slate-50 bg-purple-900 rounded-md py-2 px-4 text-sm">
+                        <BsPlus className="inline mr-1 align-center text-xl"/>
+                        <span className="hidden sm:inline">Add member</span>
+                    </button>
+                </div>
+            }
         </div>
 
         <table className="my-5 border-spacing-y-2 border-separate w-full text-left">
