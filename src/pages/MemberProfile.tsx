@@ -1,8 +1,8 @@
 import { Icon } from '@iconify/react'
 import React from 'react'
-import { Link, NavLink, Outlet, useParams } from 'react-router-dom'
+import {  Link, NavLink, Outlet, useParams } from 'react-router-dom'
 import { useAppSelector } from '../app/hooks';
-import { Qualification } from '../shared/types';
+import { ProjectType, Qualification } from '../shared/types';
 
 function MemberProfile() {
     const params = useParams();
@@ -77,26 +77,61 @@ export function Education() {
 }
 
 export function Contributions() {
+    const projects = useAppSelector(state => state.data.projects);
+    const members = useAppSelector( state => state.data.members);
+    const id = Number(useParams()['memberId']);
+    const member = useAppSelector( state => state.data.members.filter( member=>member.id=== id)[0]);
 
-    const id = Number(useParams()['memberId'])
-    const contributions = useAppSelector( state =>{
-        return state.data.members
+    const contributions = member.contributions.map( id => {
+        const project = projects.filter( prj=>prj.id===id)[0];
+        const contributors = project.contributors.map( id =>{
+            return members.filter(member =>member.id===id)[0];
+        })
+        return {
+            projectId: project.id,
+            projectTitle: project.title,
+            projectStatus: project.status,
+            projectImage: project.demoImages[0],
+            contributors:contributors
+        }
+    });
+
+    const formated = contributions.map( (contribution,key) =>{
+        return (
+                <tr key={key}  className="[&>*]:py-4 hover:bg-slate-100">
+                    <td className="hidden sm:block">
+                        <img src={contribution.projectImage} className="h-8 w-12 rounded-md border object-center object-cover" alt="" />
+                    </td>
+                    <td>
+                        {contribution.projectTitle}
+                    </td>
+                    <td className="hidden sm:flex flex-row">
+                        {
+                        contribution.contributors.map((member, key)=> <img key={key} className="rounded-full h-8 border hover:scale-105" src={member.profileImage} alt={member.name} />)
+                        }
+                    </td>
+                    <td>
+                        {contribution.projectStatus}
+                    </td>
+                </tr>
+        )
     })
-    .filter( m=>{
-        return m['id'] ===id;
-    })[0]
-    .contributions;
+    console.log(contributions);
 
     return (
         <div className="my-5">
-            <table className="w-full divide-y text-sm">
-                <thead className="bg-purple-900 text-white [&>*]:py-4">
-                    <td></td>
-                    <td>Project</td>
-                    <td>Contributors</td>
-                    <td>Status</td>
+            <table className="w-full [&>*]:divide-y text-s">
+                <thead>
+                    <tr  className="bg-purple-900 text-white [&>*]:py-4">
+                        <td className="hidden sm:block"></td>
+                        <td>Project</td>
+                        <td className="hidden sm:block">Contributors</td>
+                        <td>Status</td>
+                    </tr>
                 </thead>
-                {contributions}
+                <tbody className="[&>tr>*]:px-4">
+                    {formated}
+                </tbody>
             </table>
         </div>
     )
