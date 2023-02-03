@@ -1,4 +1,3 @@
-import { Icon } from '@iconify/react'
 import React from 'react'
 import { BsPlus } from 'react-icons/bs'
 import {  useAppSelector } from '../app/hooks';
@@ -58,7 +57,7 @@ function Members() {
 
 function Member(prop: {member: MemberType}){
     return (
-        <tr className="gap-y-5 px-2 [&>*]:py-2 rounded-sm cursor-pointer hover:bg-slate-100">
+        <tr className="gap-y-5 px-2 [&>*]:py-2 rounded-sm cursor-pointer hover:bg-slate-100  align-middle">
             <td className="flex justify-center">
                 <div className="avatar rounded-full aspect-square border flex items-center justify-center w-fit">
                     <img src={prop.member.profileImage} className="h-12 aspect-square w-auto object-center object-cover rounded-full" alt="" />
@@ -67,10 +66,10 @@ function Member(prop: {member: MemberType}){
 
             <td>
                 <h1 className="">{prop.member.name}</h1>
-                <span className="text-xs sm:text-sm font-extralight text-slate-400 italic">{prop.member.dept}</span>
+                <span className="text-xs sm:text-sm font-extralight text-slate-400">{prop.member.dept}</span>
             </td>
             <td className="hidden sm:block text-slate-400">
-                {prop.member.level}
+                {prop.member.level+ " " + prop.member.dept}
             </td>
             <td className="text-center sm:text-left">
                 {prop.member.contributions.length}

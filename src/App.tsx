@@ -13,6 +13,7 @@ import Projects from "./pages/Projects";
 import Members from './pages/Members';
 import Iknite from "./pages/Iknite";
 import Error from "./pages/Error"
+import MemberProfile from './pages/MemberProfile';
 import { 
     ContactInfo, 
     Education, Contributions } from './pages/MemberProfile';
@@ -50,14 +51,18 @@ const router = createBrowserRouter(
                 {   path: '/projects', element: <Projects />},
                 {   
                     path: '/members', 
-                    element: <Members />,
-                    children: [
-                       { path: '/members', element: <Education />},
-                       { path: '/members/contributions', element: <Contributions />},
-                       { path: '/members/contacts', element: <ContactInfo />},
-                    ]
+                    element: <Members />
                 },
                 {   path: '/iknite', element: <Iknite />},
+                { 
+                    path: '/members/:memberId', 
+                    element: <MemberProfile />,
+                    children: [
+                        { path: '/members/:memberId', element: <Education  />},
+                        { path: '/members/:memberId/contributions', element: <Contributions />},
+                        { path: '/members/:memberId/contacts', element: <ContactInfo />},
+                     ]
+                }
             ] 
         },
     ]

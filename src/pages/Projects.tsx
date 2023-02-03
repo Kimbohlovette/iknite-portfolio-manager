@@ -1,15 +1,13 @@
 import { useState } from 'react'
 import { FaCaretDown } from 'react-icons/fa'
 import { BsPlus } from "react-icons/bs"
-import ProjectDetail from './ProjectDetail'
 
 function Projects() {
 
     const [open, toggleDropdown] = useState(false)
     return (
         <div className="my-8">
-            <ProjectDetail />
-            {/* <header className="flex justify-between items-center flex-row">
+            <header className="flex justify-between items-center flex-row">
                 <div className="relative">
                     <button 
                     className="text-purple-900 hover:text-purple-600 py-2 px-4 border rounded-md"
@@ -55,7 +53,7 @@ function Projects() {
                         <Project />
                     </tbody>
                 </table>
-            </div> */}
+            </div>
         </div>
     )
 }

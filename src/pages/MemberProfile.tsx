@@ -1,19 +1,29 @@
 import { Icon } from '@iconify/react'
 import React from 'react'
-import { NavLink, Outlet } from 'react-router-dom'
+import { NavLink, Outlet, useParams } from 'react-router-dom'
+import { useAppSelector } from '../app/hooks';
+import { Qualification } from '../shared/types';
 
 function MemberProfile() {
+    const params = useParams();
+    console.log(params.memberId)
+    const memberId = Number(params['memberId'])
+
+    const member = useAppSelector(state => {
+        const members = state.data.members
+        return members.filter( m => m['id']===memberId)[0]
+    });
   return (
     <div className="max-w-5xl mx-auto">
         <div className="header">
             <div className="min-h-[8rem] border w-full rounded-md relative shadow-inner  my-12">
             <div className="avatar border w-28 h-fit aspect-square rounded-full bg-purple-50 flex justify-center items-center text-3xl overflow-hidden absolute left-1/3 sm:left-[5%] -bottom-8">
-                <img src="https://pbs.twimg.com/profile_images/1605890194200207360/4sRtb9LT_400x400.jpg"alt='' className="max-h-full"/>
+                <img src={member.profileImage} alt='' className="max-h-full"/>
             </div>
             </div>
             <div className="py-2">
-                <h1 className="py-2 font-semibold text-2xl">KIMBOH LOVETTE BANTAR</h1>
-                <p className="text-slate-600 py-2">Software Developer Trainee</p>
+                <h1 className="py-2 font-semibold text-2xl uppercase">{member.name}</h1>
+                <p className="text-slate-600 py-2">{member.dept+" ("+member.level+")"}</p>
                 <div className="flex flex-row gap-2">
                     <div className="reviews flex flex-row items-center text-purple-900">
                         <Icon icon="material-symbols:star" />
@@ -28,15 +38,15 @@ function MemberProfile() {
 
         <header className="w-full py-4 my-2 border-b text-slate-600">
             <div className="flex flex-row flex-wrap gap-8 [&>*]:pb-1">
-                <NavLink to="/members" className={({isActive})=> isActive?" border-purple-800 border-b-4":"border-b-transparent border-b-4"} end>
+                <NavLink to={"/members/" + memberId} className={({isActive})=> isActive?" border-purple-800 border-b-4":"border-b-transparent border-b-4"} end>
                     Education
                     <span className="hidden sm:inline-block">/Qualifications</span>
                 </NavLink>
-                <NavLink to="/members/contributions" className={({isActive})=> isActive?"border-b-4 pb-1 border-purple-800":""}>
+                <NavLink to={"/members/" + memberId + "/contributions"} className={({isActive})=> isActive?"border-b-4 pb-1 border-purple-800":""}>
                     Projects 
                     <span className="hidden sm:inline-block"> /Contributions</span>
                 </NavLink>
-                <NavLink to="/members/contacts" className={({isActive})=> isActive?"border-b-4 pb-1 border-purple-800":""}>
+                <NavLink to={"/members/" + memberId + "/contacts"} className={({isActive})=> isActive?"border-b-4 pb-1 border-purple-800":""}>
                     <span className="hidden sm:block">Contact information</span>
                     <span className="sm:hidden">Contacts</span>
                     </NavLink>
@@ -49,15 +59,34 @@ function MemberProfile() {
 
 
 export function Education() {
+    const id = Number(useParams()['memberId'])
+    const eduction = useAppSelector( state =>{
+        return state.data.members
+    })
+    .filter( m=>{
+        return m['id'] ===id;
+    })[0]
+    .education;
+
+    const formatedQualifications = eduction.map( (q,k) => <Certificate cert={q} key={k} />)
     return (
         <div className="my-8 divide-y [&>*]:py-4">
-            <Certificate />
-            <Certificate />
+            {formatedQualifications}
         </div>
     )
 }
 
 export function Contributions() {
+
+    const id = Number(useParams()['memberId'])
+    const contributions = useAppSelector( state =>{
+        return state.data.members
+    })
+    .filter( m=>{
+        return m['id'] ===id;
+    })[0]
+    .contributions;
+
     return (
         <div className="my-5">
             <table className="w-full divide-y text-sm">
@@ -67,26 +96,7 @@ export function Contributions() {
                     <td>Contributors</td>
                     <td>Status</td>
                 </thead>
-                <tr className="[&>*]:py-2 hover:bg-slate-200 text-slate-500 rounded-sm">
-                    <td>icon</td>
-                    <td className="flex-1">Bohikor</td>
-                    <td className="flex flex-row justify-start items-center">
-                        <Avatar />
-                        <Avatar />
-                        <Avatar />
-                        <Avatar />
-                    </td>
-                    <td className="text-green-600">completed</td>
-                </tr>
-                <tr className="[&>*]:py-2 hover:bg-slate-200 text-slate-500 rounded-sm">
-                    <td>icon</td>
-                    <td className="flex-1">Cliqets</td>
-                    <td className="flex flex-row justify-start items-center">
-                        <Avatar />
-                        <Avatar />
-                    </td>
-                    <td className="text-blue-500">in progress</td>
-                </tr>
+                {contributions}
             </table>
         </div>
     )
@@ -94,13 +104,15 @@ export function Contributions() {
 
 
 // ============== Helper components ===================
-function Certificate(){
+function Certificate(props:{cert: Qualification}){
     return (
         <div>
-            <h1 className="my-1 text-lg text-slate-700 font-semibold">BSc. Mathematics and Computer Science</h1>
-            <p className="py-1 text-slate-500">University of Buea</p>
-            <p className="py-1 text-purple-900">From 2017 to 2020</p>
-            <div className="text-slate-600 my-2">Remark: <span className="px-4 py-1 rounded-lg text-sm bg-purple-200">Excellent</span></div>
+            <h1 className="my-1 text-lg text-slate-700 font-semibold">{props.cert.degree}</h1>
+            <p className="py-1 text-slate-500">{props.cert.institution}</p>
+            <p className="py-1 text-purple-900">{"From" + props.cert.startDate + "to " + props.cert.endDate }</p>
+            <div className="text-slate-600 my-2">Remark:
+                <span className="p-1 ml-4 rounded-lg text-sm bg-purple-200">{" " + props.cert.remark}</span>
+            </div>
         </div>
     )
 }
@@ -108,7 +120,7 @@ function Certificate(){
 export function Avatar(){
     return (
         <div className="max-h-8 overflow-hidden rounded-full shadow-inner border aspect-square">
-            <img src="https://pbs.twimg.com/profile_images/1605890194200207360/4sRtb9LT_400x400.jpg" className="h" alt="" />
+            <img src= {"/sfdfk"} className="h" alt="" />
         </div>
     )
 }
@@ -118,6 +130,20 @@ export function Avatar(){
 
 
 export function ContactInfo():JSX.Element {
+    const memberId = Number(useParams().memberId)
+
+    const member = useAppSelector(state => state.data.members.find(m=> m.id ===memberId));
+
+    const contacts = member?.contacts;
+    const emails = contacts?.emails.map( email =>{
+        return (
+            <li>{email}</li> 
+        )
+    });
+
+    const phones = contacts?.phones.map( phone =>(<li>{phone}</li>))
+    const addresses = contacts?.addresses.map( address => (<li>{address}</li>))
+
     return (
         <div>
             <div className="rounded-md w-full shadow-inner border p-4 my-8">
@@ -131,8 +157,7 @@ export function ContactInfo():JSX.Element {
                             </h2>
 
                             <ul className="text-sm text-slate-500 px-10 flex flex-col gap-2 py-2 list-disc">
-                                <li>kimbohlovette@gmail.com</li>
-                                <li>kimboh.lovette@iknite.space</li>
+                                {emails}
                             </ul>
                         </li>
                         <li>
@@ -141,8 +166,7 @@ export function ContactInfo():JSX.Element {
                             Mobile & Whatsapp</h2>
 
                             <ul className="text-sm text-slate-500 px-10 flex flex-col gap-2 py-2 list-disc">
-                                <li>+237 654 11 59 22</li>
-                                <li>+237 671 92 70 65</li>
+                                {phones}
                             </ul>
                         </li>
                         <li>
@@ -150,8 +174,7 @@ export function ContactInfo():JSX.Element {
                             <Icon icon="ph:address-book-fill" className="inline-block text-xl mr-2" />
                             Address Lines</h2>
                             <ul className="text-sm text-slate-500 px-10 flex flex-col gap-2 py-2 list-disc">
-                                <li>Razel street, molyko buea</li>
-                                <li>Kitchen corner, Untarred malingo, Molyko Buea</li>
+                                {addresses}
                             </ul>
                         </li>
                     </ul>
