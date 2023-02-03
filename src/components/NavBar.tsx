@@ -8,7 +8,7 @@ export default function NavBar(): JSX.Element {
     const isAuthenticated = useAppSelector(state=> state.auth.isAuthenticated)
     return (
         <header className="flex flex-row justify-between items-center bg-purple-900 py-4 text-white px-4 sm:px-8">
-            <div className="brand text-2xl font-bold">ISPM</div>
+            <Link to="/"><div className="brand text-2xl font-bold">ISPM</div></Link>
             <nav className="hidden sm:block">
                 <ul className="flex flex-row gap-4 font-medium">
                     <Link to="/">

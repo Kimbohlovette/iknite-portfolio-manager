@@ -1,5 +1,6 @@
 import React from 'react'
 import { BsPlus } from 'react-icons/bs'
+import { Link } from 'react-router-dom';
 import {  useAppSelector } from '../app/hooks';
 import { MemberType } from '../shared/types';
 
@@ -38,7 +39,7 @@ function Members() {
             }
         </div>
 
-        <table className="my-5 border-spacing-y-2 border-separate w-full text-left">
+        <table className="my-5 border-spacing-y-2 [&>*]:divide-y w-full text-left">
             <thead>
                 <tr className="text-sm sm:text-base [&>*]:py-1 text-slate-800 text-center sm:text-left">
                     <th></th>
@@ -57,7 +58,7 @@ function Members() {
 
 function Member(prop: {member: MemberType}){
     return (
-        <tr className="gap-y-5 px-2 [&>*]:py-2 rounded-sm cursor-pointer hover:bg-slate-100  align-middle">
+        <tr className="relative gap-y-5 px-2 [&>*]:py-2 rounded-sm cursor-pointer hover:bg-slate-100  align-middle">
             <td className="flex justify-center">
                 <div className="avatar rounded-full aspect-square border flex items-center justify-center w-fit">
                     <img src={prop.member.profileImage} className="h-12 aspect-square w-auto object-center object-cover rounded-full" alt="" />
@@ -69,12 +70,12 @@ function Member(prop: {member: MemberType}){
                 <span className="text-xs sm:text-sm font-extralight text-slate-400">{prop.member.dept}</span>
             </td>
             <td className="hidden sm:block text-slate-400">
-                {prop.member.level+ " " + prop.member.dept}
+                {prop.member.level + " " + prop.member.dept}
             </td>
             <td className="text-center sm:text-left">
                 {prop.member.contributions.length}
             </td>
-        
+            <Link to={"/members/"+ prop.member.id} className="absolute left-0 top-0 h-full w-full "></Link>
         </tr>
     )
 }
