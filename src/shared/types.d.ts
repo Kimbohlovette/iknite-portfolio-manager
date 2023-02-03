@@ -42,6 +42,9 @@ export interface ProjectType {
     status: string
     demoImages: string[]
     contributors: number[]
+    startDate: string
+    endDate: string
+    percentageComplete: number
 }
 
 export interface Data {

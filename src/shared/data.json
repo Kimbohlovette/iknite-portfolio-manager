@@ -662,7 +662,10 @@
 				"https://pbs.twimg.com/media/Fa2Di9bWIAEYTtk?format=jpg&name=small",
 				"https://pbs.twimg.com/media/Fa2Di9bWIAEYTtk?format=jpg&name=small"
 			],
-			"contributors": [1, 2, 4]
+			"contributors": [1, 2, 4],
+            "startDate": "November 20, 2022",
+            "endDate" : "November 27, 2022",
+            "percentageComplete": 100
         },
 		{
 			"id": 2,
@@ -674,7 +677,10 @@
 				"https://pbs.twimg.com/media/Fa2Di9bWIAEYTtk?format=jpg&name=small",
 				"https://pbs.twimg.com/media/Fa2Di9bWIAEYTtk?format=jpg&name=small"
 			],
-			"contributors": [1, 2, 4]
+			"contributors": [1, 2, 4],
+            "startDate": "December 01, 2022",
+            "endDate" : "December 07, 2022",
+            "percentageComplete": 100
 		},
 		{
 			"id": 4,
@@ -686,7 +692,10 @@
 				"https://pbs.twimg.com/media/Fa2Di9bWIAEYTtk?format=jpg&name=small",
 				"https://pbs.twimg.com/media/Fa2Di9bWIAEYTtk?format=jpg&name=small"
 			],
-			"contributors": [1,2]
+			"contributors": [1,2],
+            "startDate": "December 10, 2022",
+            "endDate" : "December 20, 2022",
+            "percentageComplete": 100
 		},
 		{
 			"id": 3,
@@ -698,7 +707,10 @@
 				"https://pbs.twimg.com/media/Fa2Di9bWIAEYTtk?format=jpg&name=small",
 				"https://pbs.twimg.com/media/Fa2Di9bWIAEYTtk?format=jpg&name=small"
 			],
-			"contributors": [1]
+			"contributors": [1],
+            "startDate": "December 22, 2022",
+            "endDate" : "December 28, 2022",
+            "percentageComplete": 90
 		},
 		{
 			"id": 5,
@@ -710,7 +722,11 @@
 				"https://dev.cliqets.xyz/images/featureImg.svg",
 				"https://dev.cliqets.xyz/_next/image?url=https%3A%2F%2Fimages.unsplash.com%2Fphoto-1523580494863-6f3031224c94%3Fixlib%3Drb-1.2.1%26ixid%3DMnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8%26auto%3Dformat%26fit%3Dcrop%26w%3D870%26q%3D80&w=1920&q=75"
 			],
-			"contributors": [6, 2, 4]
+			"contributors": [6, 2, 4],
+            "startDate": "July 30, 2022",
+            "endDate" : "March 01, 2023",
+            "percentageComplete": 80
+
 		},
 		{
 			"id": 6,
@@ -722,7 +738,10 @@
 				"https://i0.wp.com/iknite.studio/wp-content/uploads/2022/07/Website-design.png?w=1080",
 				"https://i0.wp.com/iknite.studio/wp-content/uploads/2022/07/UIUX.png?w=1080"
 			],
-			"contributors": [14 , 4, 6, 12, 15]
+			"contributors": [14 , 12, 15],
+            "startDate": "October 22, 2022",
+            "endDate" : "July 19, 3",
+            "percentageComplete": 78
 		}
 	],
 	"aboutIknite": {},
