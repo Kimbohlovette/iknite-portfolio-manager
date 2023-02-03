@@ -1,12 +1,12 @@
 import { Icon } from '@iconify/react'
 import React from 'react'
-import { NavLink, Outlet, useParams } from 'react-router-dom'
+import { Link, NavLink, Outlet, useParams } from 'react-router-dom'
 import { useAppSelector } from '../app/hooks';
 import { Qualification } from '../shared/types';
 
 function MemberProfile() {
     const params = useParams();
-    console.log(params.memberId)
+    console.log("memberId:",params.memberId)
     const memberId = Number(params['memberId'])
 
     const member = useAppSelector(state => {
@@ -135,14 +135,9 @@ export function ContactInfo():JSX.Element {
     const member = useAppSelector(state => state.data.members.find(m=> m.id ===memberId));
 
     const contacts = member?.contacts;
-    const emails = contacts?.emails.map( email =>{
-        return (
-            <li>{email}</li> 
-        )
-    });
-
-    const phones = contacts?.phones.map( phone =>(<li>{phone}</li>))
-    const addresses = contacts?.addresses.map( address => (<li>{address}</li>))
+    const emails = contacts?.emails.map( (email,key) => (<li key={key}>{email}</li> ));
+    const phones = contacts?.phones.map( (phone ,key) =>(<li key={key}>{phone}</li>));
+    const addresses = contacts?.addresses.map( (address, key) => (<li key={key}>{address}</li>));
 
     return (
         <div>
@@ -222,15 +217,46 @@ export function ContactInfo():JSX.Element {
 }
 
 function Social() {
+    const memberId = Number(useParams().memberId);
+    const socials = useAppSelector( state=>state.data.members.find(m=>m.id===memberId))?.mediaLinks;
     return (
         <div className="rounded-md w-full shadow-inner border p-4 my-8 sm:text-center">
            <h1 className="py-4 text-xl font-medium">Contact Information</h1>
            <div className="flex flex-row sm:justify-center my-2 gap-4 text-4xl text-purple-900 [&>*]:cursor-pointer hover:[&>*]:scale-[1.03]">
-                <Icon icon="mdi:github" />
+            { socials?.linkedin && 
+            <a href={socials.linkedin} target="_blank" rel='noreferrer'>
                 <Icon icon="mdi:linkedin" />
+            </a>
+            }
+            { socials?.github && 
+            <a href={socials.github} target="_blank" rel='noreferrer'>
+                <Icon icon="mdi:github" />
+            </a>
+            }
+            {
+                socials?.twitter &&
+                <a href={socials.twitter} target="_blank" rel='noreferrer'>
                 <Icon icon="ant-design:twitter-square-filled" />
+                </a>
+            }
+            {
+                socials?.facebook &&
+                <a href={socials.facebook} target="_blank" rel='noreferrer'>
                 <Icon icon="fe:facebook" />
+                </a>
+            }
+            {
+                socials?.instagram &&
+                <a href={socials.instagram} target="_blank" rel='noreferrer'>
                 <Icon icon="ri:instagram-fill" />
+                </a>
+            }
+            {
+                socials?.tiktok && 
+                <a href={socials.tiktok} target="_blank" rel='noreferrer'>
+                    <Icon icon="ic:baseline-tiktok" />
+                </a>
+            }
            </div>
         </div>
     )
