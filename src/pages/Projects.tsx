@@ -8,8 +8,7 @@ import { Link } from 'react-router-dom';
 function Projects() {
 
     const [open, toggleDropdown] = useState(false);
-    const [filter, setFilter] = useState('design');
-
+    const [filter, setFilter] = useState('all');
     const handleFilter = (key:string)=>{
         setFilter(filter=>key);
         toggleDropdown(open=>false);
@@ -20,7 +19,7 @@ function Projects() {
     return (
         <div className="my-8">
             <header className="flex justify-between items-center flex-row">
-                <div className="relative">
+                <div className="relative" id="dropdown">
                     <button 
                     className="text-purple-900 hover:text-purple-600 py-2 px-4 border rounded-md"
                     onClick={

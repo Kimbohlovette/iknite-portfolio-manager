@@ -663,6 +663,7 @@
 			],
 			"contributors": [1, 2, 4],
 			"startDate": "November 20, 2022",
+            "difficulty": "trainee",
 			"endDate": "November 27, 2022",
 			"percentageComplete": 100
 		},
@@ -679,6 +680,7 @@
 			],
 			"contributors": [1, 2, 4],
 			"startDate": "December 01, 2022",
+            "difficulty": "trainee",
 			"endDate": "December 07, 2022",
 			"percentageComplete": 100
 		},
@@ -695,6 +697,7 @@
 			],
 			"contributors": [1, 2],
 			"startDate": "December 10, 2022",
+            "difficulty": "trainee",
 			"endDate": "December 20, 2022",
 			"percentageComplete": 100
 		},
@@ -711,6 +714,7 @@
 			],
 			"contributors": [1],
 			"startDate": "December 22, 2022",
+            "difficulty": "trainee",
 			"endDate": "December 28, 2022",
 			"percentageComplete": 90
 		},
@@ -728,6 +732,7 @@
 			"contributors": [6, 2, 4],
 			"startDate": "July 30, 2022",
 			"endDate": "March 01, 2023",
+            "difficulty": "trainee",
 			"percentageComplete": 80
 
 		},
@@ -737,6 +742,7 @@
 			"desc": "Iknite Studio brings the best of your brand to the publice through Quality Web Aplications and Designs",
 			"status": "in progress",
 			"dept": "design",
+            "difficulty": "trainee",
 			"demoImages": [
 				"https://i0.wp.com/iknite.studio/wp-content/uploads/2022/07/Branding.png?w=1080",
 				"https://i0.wp.com/iknite.studio/wp-content/uploads/2022/07/Website-design.png?w=1080",

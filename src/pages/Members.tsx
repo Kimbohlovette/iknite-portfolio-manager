@@ -3,15 +3,21 @@ import { BsPlus } from 'react-icons/bs'
 import { Link } from 'react-router-dom';
 import {  useAppSelector } from '../app/hooks';
 import { MemberType } from '../shared/types';
+import { useState } from 'react';
 
 function Members() {
-    const isAuthenticated = useAppSelector(state => state.auth.isAuthenticated)
-    const members = useAppSelector( state => state.data.members)
+    const isAuthenticated = useAppSelector(state => state.auth.isAuthenticated);
+    let members = useAppSelector( state => state.data.members);
+    const [search, setSearchKey] = useState("");
+    const [filter, setFilter] = useState("dev");
+
+    members = filterMembers(members, search, filter);
+
     const formatedMembers = members.map( (member, key) => {
         return (
             <Member member ={member} key={key} />
-        )
-    })
+        );
+    });
   return (
     <div className="my-5">
         <h1 className="text-2xl font-medium my-2">Members</h1>
@@ -21,12 +27,14 @@ function Members() {
                 type="search" 
                 name="search" 
                 id="search-name"
+                value={search}
+                onChange={(e)=>setSearchKey(search=>e.target.value)}
                 placeholder="Search for people"
                 className="border focus:outline-none py-2 px-4 min-w-0 rounded-md"
                 />
-                <button className="border py-2 px-4 rounded-md text-slate-600 text-sm w-fit">All</button>
-                <button className="border py-2 px-4 rounded-md text-slate-600 text-sm w-fit">Designers</button>
-                <button className="border py-2 px-4 rounded-md text-slate-600 text-sm w-fit">Developers</button>
+                <button className="border py-2 px-4 rounded-md text-slate-600 text-sm w-fit" onClick={()=>setFilter('all')}>All</button>
+                <button className="border py-2 px-4 rounded-md text-slate-600 text-sm w-fit" onClick={()=>setFilter('design')}>Designers</button>
+                <button className="border py-2 px-4 rounded-md text-slate-600 text-sm w-fit" onClick={()=>setFilter('dev')}>Developers</button>
             </div>
             { 
                 isAuthenticated && 
@@ -80,4 +88,19 @@ function Member(prop: {member: MemberType}){
     )
 }
 
-export default Members
+export default Members;
+
+
+function filterMembers(members: MemberType[], searchKey:string ="",filter: string ="all"): MemberType[]{
+    let matched = members.filter( member => (new RegExp(searchKey.toLocaleLowerCase())).test(member.name.toLowerCase()));
+    switch(filter){
+        case "dev":
+            return matched.filter( member => member.dept==='Software Developer');
+        case "design":
+            return matched.filter(member => member.dept==="Designer");
+        case "all":
+            return matched
+        default:
+            return matched;
+    }
+}
