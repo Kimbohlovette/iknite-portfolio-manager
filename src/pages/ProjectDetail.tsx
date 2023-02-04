@@ -1,4 +1,3 @@
-import { Avatar } from "./MemberProfile"
 import { RxCaretRight, RxCaretLeft } from 'react-icons/rx'
 import { Link, useParams } from 'react-router-dom';
 import { useAppSelector } from '../app/hooks';

@@ -100,8 +100,8 @@ function Event() {
 function Member(props: { member: MemberType }) {
     return (
     <div className="relative p-8 border border-transparent hover:border-gray-200 rounded-md w-full  hover:shadow-inner flex flex-row gap-4 max-w-fit cursor-pointer bg-slate-100">
-        <div className="avatar border w-20 h-fit aspect-square rounded-full bg-purple-50 flex justify-center items-center text-3xl">
-            <Icon icon="mdi:user" className='text-purple-900'/>
+        <div className="avatar border w-20 h-fit aspect-square rounded-full bg-purple-50 flex justify-center items-center text-3xl overflow-hidden">
+            <img src={props.member.profileImage} alt="" />
         </div>
         <div className=" flex flex-col justify-start items-start">
             <h1 className="font-semibold text-slate-800 text-lg">{props.member.name}</h1>

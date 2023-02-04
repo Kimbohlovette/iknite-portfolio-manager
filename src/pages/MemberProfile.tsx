@@ -1,8 +1,8 @@
 import { Icon } from '@iconify/react'
 import React from 'react'
-import {  Link, NavLink, Outlet, useParams } from 'react-router-dom'
+import {  NavLink, Outlet, useParams } from 'react-router-dom'
 import { useAppSelector } from '../app/hooks';
-import { ProjectType, Qualification } from '../shared/types';
+import { Qualification } from '../shared/types';
 
 function MemberProfile() {
     const params = useParams();
@@ -16,8 +16,9 @@ function MemberProfile() {
   return (
     <div className="max-w-5xl mx-auto">
         <div className="header">
-            <div className="min-h-[8rem] border w-full rounded-md relative shadow-inner  my-12">
-            <div className="avatar border w-28 h-fit aspect-square rounded-full bg-purple-50 flex justify-center items-center text-3xl overflow-hidden absolute left-1/3 sm:left-[5%] -bottom-8">
+            <div className="h-[7rem] sm:h-[10rem] border w-full rounded-md relative shadow-inner my-12">
+                <img src={member.coverImage} className="w-full object-center object-cover h-full" alt="" />
+            <div className="avatar border w-24 sm:w-28 h-fit aspect-square rounded-full bg-purple-50 flex justify-center items-center text-3xl overflow-hidden absolute left-1/3 sm:left-[5%] -bottom-8">
                 <img src={member.profileImage} alt='' className="max-h-full"/>
             </div>
             </div>
