@@ -17,6 +17,7 @@ import MemberProfile from './pages/MemberProfile';
 import { 
     ContactInfo, 
     Education, Contributions } from './pages/MemberProfile';
+import ProjectDetail from "./pages/ProjectDetail";
 
 
 
@@ -49,6 +50,8 @@ const router = createBrowserRouter(
             children: [
                 {   path: '/', element: <Home />},
                 {   path: '/projects', element: <Projects />},
+                {   
+                    path: '/projects/:projectId', element: <ProjectDetail /> },
                 {   
                     path: '/members', 
                     element: <Members />

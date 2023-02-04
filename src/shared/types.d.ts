@@ -45,6 +45,8 @@ export interface ProjectType {
     startDate: string
     endDate: string
     percentageComplete: number
+    liveLink?: string
+    projectRepo?: string
 }
 
 export interface Data {
