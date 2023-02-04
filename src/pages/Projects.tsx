@@ -1,10 +1,14 @@
 import { useState } from 'react'
 import { FaCaretDown } from 'react-icons/fa'
 import { BsPlus } from "react-icons/bs"
+import { useAppSelector } from '../app/hooks';
+import { ProjectType } from '../shared/types';
+import { Link } from 'react-router-dom';
 
 function Projects() {
 
     const [open, toggleDropdown] = useState(false)
+    const projects = useAppSelector(state => state.data.projects)
     return (
         <div className="my-8">
             <header className="flex justify-between items-center flex-row">
@@ -35,7 +39,7 @@ function Projects() {
                 </div>
             </header>
             <div className="my-8">
-                <table className="w-full text-left border-separate border-space-y-2">
+                <table className="w-full text-left [&>*]:divide-y">
                     <thead>
                         <tr>
                             <th>Project Name</th>
@@ -47,10 +51,13 @@ function Projects() {
                         </tr>
                     </thead>
                     <tbody className="text-sm">
-                        <Project />
-                        <Project />
-                        <Project />
-                        <Project />
+                        {
+                            projects.map( (project, key) => {
+                                return (
+                                <Project key={key} project={project}/>
+                                )
+                            })
+                        }
                     </tbody>
                 </table>
             </div>
@@ -58,21 +65,23 @@ function Projects() {
     )
 }
 
-function Project(){
+function Project(props: {project: ProjectType}){
     return (
-        <tr className="text-slate-500 [&>*]:py-4">
-            <td>Bohikor App</td>
+        <tr className="relative text-slate-500 [&>*]:py-5 hover:bg-slate-100">
+            <td className="px-2">{props.project.title}</td>
             <td>
                 <span className="rounded-full py-1 px-4 text-sm bg-purple-600 text-slate-50 ">
-                active
+                {props.project.status}
                 </span>
             </td>
-            <td>100%</td>
-            <td>3</td>
-            <td>02/02/2022</td>
-            <td>01/11/2022</td>
+            <td>{props.project.percentageComplete}</td>
+            <td className="text-center">{props.project.contributors.length}</td>
+            <td >{props.project.startDate}</td>
+            <td>{props.project.endDate}</td>
+            <Link to={"/projects/"+ props.project.id} className="absolute left-0 top-0 h-full w-full "></Link>
         </tr>
     )
+
 }
 
 
