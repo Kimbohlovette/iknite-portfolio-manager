@@ -19,7 +19,7 @@ function Members() {
         );
     });
   return (
-    <div className="my-5">
+    <div className="my-8 min-h-screen">
         <h1 className="text-2xl font-medium my-2">Members</h1>
         <div className="flex justify-between items-start">
             <div className="filters flex flex-row flex-wrap gap-2 [&>*:focus]:shadow [&>*:focus]:shadow-purple-200 [&>*:focus]:border-purple-400">
@@ -49,7 +49,7 @@ function Members() {
 
         {
         formatedMembers.length<1 ?
-        <p className="my-5 text-center">No matches found for <span className="italic text-base text-purple-600">{search}</span></p>:
+        <p className="my-5">No matches found for <span className="italic text-base text-purple-600">{search}</span></p>:
         <table className="my-5 border-spacing-y-2 [&>*]:divide-y w-full text-left">
             <thead>
                 <tr className="text-sm sm:text-base [&>*]:py-1 text-slate-800 text-center sm:text-left">

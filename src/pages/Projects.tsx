@@ -17,7 +17,7 @@ function Projects() {
     let projects = useAppSelector(state => state.data.projects);
     projects = filterProjects(projects,filter)
     return (
-        <div className="my-8">
+        <div className="my-8 min-h-screen">
             <header className="flex justify-between items-center flex-row">
                 <div className="relative" id="dropdown">
                     <button 
@@ -51,10 +51,10 @@ function Projects() {
                         <tr>
                             <th>Project Name</th>
                             <th>Status</th>
-                            <th>%</th>
-                            <th>Contributors</th>
-                            <th>Start Date</th>
-                            <th>End Date</th> 
+                            <th className="hidden md:table-cell">%</th>
+                            <th className="hidden md:table-cell">Contributors</th>
+                            <th className="hidden lg:table-cell">Start Date</th>
+                            <th className="hidden lg:table-cell">End Date</th> 
                         </tr>
                     </thead>
                     <tbody className="text-sm">
@@ -81,10 +81,10 @@ function Project(props: {project: ProjectType}){
                 {props.project.status}
                 </span>
             </td>
-            <td>{props.project.percentageComplete}</td>
-            <td className="text-center">{props.project.contributors.length}</td>
-            <td >{props.project.startDate}</td>
-            <td>{props.project.endDate}</td>
+            <td className="hidden md:table-cell">{props.project.percentageComplete}</td>
+            <td className="hidden md:table-cell text-center">{props.project.contributors.length}</td>
+            <td className="hidden lg:table-cell">{props.project.startDate}</td>
+            <td className="hidden lg:table-cell">{props.project.endDate}</td>
             <Link to={"/projects/"+ props.project.id} className="absolute left-0 top-0 h-full w-full "></Link>
         </tr>
     )

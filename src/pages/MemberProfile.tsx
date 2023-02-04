@@ -1,6 +1,6 @@
 import { Icon } from '@iconify/react'
 import React from 'react'
-import {  NavLink, Outlet, useParams } from 'react-router-dom'
+import {  Link, NavLink, Outlet, useParams } from 'react-router-dom'
 import { useAppSelector } from '../app/hooks';
 import { Qualification } from '../shared/types';
 
@@ -14,7 +14,7 @@ function MemberProfile() {
         return members.filter( m => m['id']===memberId)[0]
     });
   return (
-    <div className="max-w-5xl mx-auto">
+    <div className="min-h-screen max-w-5xl mx-auto">
         <div className="header">
             <div className="h-[7rem] sm:h-[10rem] border w-full rounded-md relative shadow-inner my-12">
                 <img src={member.coverImage} className="w-full object-center object-cover h-full" alt="" />
@@ -99,7 +99,7 @@ export function Contributions() {
 
     const formated = contributions.map( (contribution,key) =>{
         return (
-                <tr key={key}  className="[&>*]:py-4 hover:bg-slate-100">
+                <tr key={key}  className="relative [&>*]:py-4 hover:bg-slate-100">
                     <td className="hidden sm:block">
                         <img src={contribution.projectImage} className="h-8 w-12 rounded-md border object-center object-cover" alt="" />
                     </td>
@@ -114,6 +114,7 @@ export function Contributions() {
                     <td>
                         {contribution.projectStatus}
                     </td>
+                    <Link to={"/projects/"+ contribution.projectId} className="absolute left-0 top-0 w-full h-full"></Link>
                 </tr>
         )
     })

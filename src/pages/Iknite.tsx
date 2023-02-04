@@ -1,6 +1,6 @@
 export default function Iknite(): JSX.Element {
     return (
-        <div>
+        <div className="min-h-screen">
             About Iknite Space
         </div>
     )

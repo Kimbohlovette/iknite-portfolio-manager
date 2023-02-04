@@ -25,7 +25,7 @@ function PojectDetail() {
     });
 
     return (
-        <div className="py-8 flex flex-col md:flex-row gap-x-10">
+        <div className="py-8 min-h-screen flex flex-col md:flex-row gap-x-10">
             <div className="flex-1">
                 <div className="rounded-md overflow-hidden shadow-inner relative">
                     <img src={project.demoImages[0]} className="object-center object-cover" alt="" />
