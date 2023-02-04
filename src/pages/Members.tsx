@@ -1,9 +1,9 @@
 import React from 'react'
 import { FaUserPlus } from 'react-icons/fa'
-import { Link } from 'react-router-dom';
 import {  useAppSelector } from '../app/hooks';
 import { MemberType } from '../shared/types';
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 
 function Members() {
     const isAuthenticated = useAppSelector(state => state.auth.isAuthenticated);
@@ -68,7 +68,11 @@ function Members() {
   )
 }
 
+
+
+
 function Member(prop: {member: MemberType}){
+
     return (
         <tr className="relative gap-y-5 px-2 [&>*]:py-2 rounded-sm cursor-pointer hover:bg-slate-100  align-middle">
             <td className="flex justify-center">

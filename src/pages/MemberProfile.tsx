@@ -4,10 +4,10 @@ import {  Link, NavLink, Outlet, useParams } from 'react-router-dom'
 import { useAppSelector } from '../app/hooks';
 import { Qualification } from '../shared/types';
 
+const defaultCoverImage = require('../shared/default-cover-photo.jpeg');
 function MemberProfile() {
     const params = useParams();
-    console.log("memberId:",params.memberId)
-    const memberId = Number(params['memberId'])
+    const memberId = Number(params['memberId']);
 
     const member = useAppSelector(state => {
         const members = state.data.members
@@ -17,7 +17,8 @@ function MemberProfile() {
     <div className="min-h-screen max-w-5xl mx-auto">
         <div className="header">
             <div className="h-[7rem] sm:h-[10rem] border w-full rounded-md relative shadow-inner my-12">
-                <img src={member.coverImage} className="w-full object-center object-cover h-full" alt="" />
+                <img src={
+                    member.coverImage===""?defaultCoverImage:member.coverImage} className="w-full object-center object-cover h-full" alt="" />
             <div className="avatar border w-24 sm:w-28 h-fit aspect-square rounded-full bg-purple-50 flex justify-center items-center text-3xl overflow-hidden absolute left-1/3 sm:left-[5%] -bottom-8">
                 <img src={member.profileImage} alt='' className="max-h-full"/>
             </div>
