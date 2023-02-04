@@ -24,10 +24,10 @@ function Projects() {
                     className="text-purple-900 hover:text-purple-600 py-2 px-4 border rounded-md"
                     onClick={
                         ()=> {
-                        toggleDropdown(open=>!open)
+                        toggleDropdown(open=>!open);
                         }
                     }
-                    >All Projects <FaCaretDown className="inline" /></button>
+                    >{ updateDropdownLabel(filter)} <FaCaretDown className="inline" /></button>
                     <div
                     className="dropdown absolute z-50 top-full mt-2 rounded-md border border-purple-200 shadow-inner bg-white py-5 px-2 min-w-max"
                     hidden={!open}>
@@ -113,5 +113,20 @@ function filterProjects(list: ProjectType[],key: string): ProjectType[] {
             default:
                 return list;
         }
+}
+
+function updateDropdownLabel(filter:string): string {
+    switch(filter){
+        case "all":
+            return "All Projects";
+        case "dev":
+            return "Software Projects";
+
+        case "design":
+            return "Design Projects";
+
+        default:
+            return "All Projects";
+    }
 }
 

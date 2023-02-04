@@ -47,6 +47,9 @@ function Members() {
             }
         </div>
 
+        {
+        formatedMembers.length<1 ?
+        <p className="my-5 text-center">No matches found for <span className="italic text-base text-purple-600">{search}</span></p>:
         <table className="my-5 border-spacing-y-2 [&>*]:divide-y w-full text-left">
             <thead>
                 <tr className="text-sm sm:text-base [&>*]:py-1 text-slate-800 text-center sm:text-left">
@@ -60,6 +63,7 @@ function Members() {
                 {formatedMembers}
             </tbody>
         </table>
+        }
     </div>
   )
 }
