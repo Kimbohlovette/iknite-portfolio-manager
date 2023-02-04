@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { FaCaretDown } from 'react-icons/fa'
-import { BsPlus } from "react-icons/bs"
+import { TbApps } from "react-icons/tb"
 import { useAppSelector } from '../app/hooks';
 import { ProjectType } from '../shared/types';
 import { Link } from 'react-router-dom';
@@ -40,7 +40,7 @@ function Projects() {
                 </div>
                 <div className="">
                     <button className="text-slate-50 bg-purple-900 rounded-md py-2 px-4 text-sm">
-                        <BsPlus className="inline mr-1 align-center text-xl"/>
+                        <TbApps className="inline mr-1 align-center text-xl"/>
                         <span className="hidden sm:inline">Add project</span>
                     </button>
                 </div>

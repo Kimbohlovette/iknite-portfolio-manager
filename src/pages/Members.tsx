@@ -1,5 +1,5 @@
 import React from 'react'
-import { BsPlus } from 'react-icons/bs'
+import { FaUserPlus } from 'react-icons/fa'
 import { Link } from 'react-router-dom';
 import {  useAppSelector } from '../app/hooks';
 import { MemberType } from '../shared/types';
@@ -40,7 +40,7 @@ function Members() {
                 isAuthenticated && 
                 <div className="">
                     <button className="text-slate-50 bg-purple-900 rounded-md py-2 px-4 text-sm">
-                        <BsPlus className="inline mr-1 align-center text-xl"/>
+                        <FaUserPlus className="inline mr-1 align-center text-xl"/>
                         <span className="hidden sm:inline">Add member</span>
                     </button>
                 </div>
