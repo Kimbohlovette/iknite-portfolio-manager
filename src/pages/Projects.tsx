@@ -7,8 +7,16 @@ import { Link } from 'react-router-dom';
 
 function Projects() {
 
-    const [open, toggleDropdown] = useState(false)
-    const projects = useAppSelector(state => state.data.projects)
+    const [open, toggleDropdown] = useState(false);
+    const [filter, setFilter] = useState('design');
+
+    const handleFilter = (key:string)=>{
+        setFilter(filter=>key);
+        toggleDropdown(open=>false);
+    }
+
+    let projects = useAppSelector(state => state.data.projects);
+    projects = filterProjects(projects,filter)
     return (
         <div className="my-8">
             <header className="flex justify-between items-center flex-row">
@@ -22,12 +30,12 @@ function Projects() {
                     }
                     >All Projects <FaCaretDown className="inline" /></button>
                     <div
-                    className="dropdown absolute top-full mt-2 rounded-md border border-purple-200 shadow-inner bg-white py-5 px-2 min-w-max"
+                    className="dropdown absolute z-50 top-full mt-2 rounded-md border border-purple-200 shadow-inner bg-white py-5 px-2 min-w-max"
                     hidden={!open}>
                         <ul className="text-slate-600 [&>*]:py-2 [&>*]:px-4 hover:[&>*]:bg-slate-100 [&>*]:rounded-md [&>*]:cursor-pointer">
-                            <li>All Projects</li>
-                            <li>Design Project</li>
-                            <li>Software Developmen</li>
+                            <li  onClick={()=>handleFilter('all')}>All Projects</li>
+                            <li onClick={()=>handleFilter('design')}>Design Project</li>
+                            <li onClick={()=>handleFilter('dev')}>Software Developmen</li>
                         </ul>
                     </div>
                 </div>
@@ -70,7 +78,7 @@ function Project(props: {project: ProjectType}){
         <tr className="relative text-slate-500 [&>*]:py-5 hover:bg-slate-100">
             <td className="px-2">{props.project.title}</td>
             <td>
-                <span className="rounded-full py-1 px-4 text-sm bg-purple-600 text-slate-50 ">
+                <span className="rounded-full py-1 px-4 text-sm bg-purple-200 text-slate-600 ">
                 {props.project.status}
                 </span>
             </td>
@@ -86,3 +94,25 @@ function Project(props: {project: ProjectType}){
 
 
 export default Projects
+
+
+function filterProjects(list: ProjectType[],key: string): ProjectType[] {
+        switch(key){
+            case "design":
+                return list.filter( project=>{
+                    return project.dept==="design";
+                });
+            
+            case "dev":
+                return list.filter( project=>{
+                    return project.dept==="dev";
+                });
+                
+            case "all":
+                return list;
+
+            default:
+                return list;
+        }
+}
+

@@ -1,6 +1,5 @@
 {
-	"members": [
-        {
+	"members": [{
 			"id": 1,
 			"name": "Kimboh Lovette",
 			"level": "Trainee",
@@ -29,7 +28,7 @@
 					"Kitchen Corner, Untarred Malingo, Molyko Buea"
 				]
 			},
-			"contributions": [1,6,3,2],
+			"contributions": [1, 6, 3, 2],
 			"education": [{
 					"institution": "University of Buea",
 					"degree": "BSc. Mathematics and Computer Science",
@@ -361,7 +360,7 @@
 					"Behind Las Vegas, Molyko Buea"
 				]
 			},
-			"contributions": [5,1],
+			"contributions": [5, 1],
 			"education": [{
 				"institution": "University of Buea, FET",
 				"degree": "BSc. Computer Engineering",
@@ -395,7 +394,7 @@
 					"Behind Las Vegas, Molyko Buea"
 				]
 			},
-			"contributions": [2,5],
+			"contributions": [2, 5],
 			"education": [{
 				"institution": "University of Buea, FET",
 				"degree": "BSc. Computer Engineering",
@@ -431,7 +430,7 @@
 					"Behind Las Vegas, Molyko Buea"
 				]
 			},
-			"contributions": [1,3],
+			"contributions": [1, 3],
 			"education": [{
 				"institution": "University of Buea, FET",
 				"degree": "BSc. Computer Engineering",
@@ -651,26 +650,27 @@
 			}]
 		}
 	],
-	"projects": [
-        {
+	"projects": [{
 			"id": 1,
 			"title": "Adobe Homepage Clone",
 			"desc": "A clone of the adobe website with html/css only",
 			"status": "completed",
+			"dept": "dev",
 			"demoImages": [
 				"https://pbs.twimg.com/media/Fa2Di9bWIAEYTtk?format=jpg&name=small",
 				"https://pbs.twimg.com/media/Fa2Di9bWIAEYTtk?format=jpg&name=small",
 				"https://pbs.twimg.com/media/Fa2Di9bWIAEYTtk?format=jpg&name=small"
 			],
 			"contributors": [1, 2, 4],
-            "startDate": "November 20, 2022",
-            "endDate" : "November 27, 2022",
-            "percentageComplete": 100
-        },
+			"startDate": "November 20, 2022",
+			"endDate": "November 27, 2022",
+			"percentageComplete": 100
+		},
 		{
 			"id": 2,
 			"title": "Besnik Dribble Design with Bootstrap",
 			"desc": "This project is a ui implementation of a dribble design with th HTML5, CSS3 and Bootstrap5.",
+			"dept": "dev",
 			"status": "completed",
 			"demoImages": [
 				"https://pbs.twimg.com/media/Fa2Di9bWIAEYTtk?format=jpg&name=small",
@@ -678,54 +678,57 @@
 				"https://pbs.twimg.com/media/Fa2Di9bWIAEYTtk?format=jpg&name=small"
 			],
 			"contributors": [1, 2, 4],
-            "startDate": "December 01, 2022",
-            "endDate" : "December 07, 2022",
-            "percentageComplete": 100
+			"startDate": "December 01, 2022",
+			"endDate": "December 07, 2022",
+			"percentageComplete": 100
 		},
 		{
 			"id": 4,
 			"title": "Farmino web app",
 			"desc": "Farmino is an agricultural e-commerce web application that helps farmers sell their farm products and also help buyers get the best of quality farm products easily",
 			"status": "completed",
+			"dept": "dev",
 			"demoImages": [
 				"https://pbs.twimg.com/media/Fa2Di9bWIAEYTtk?format=jpg&name=small",
 				"https://pbs.twimg.com/media/Fa2Di9bWIAEYTtk?format=jpg&name=small",
 				"https://pbs.twimg.com/media/Fa2Di9bWIAEYTtk?format=jpg&name=small"
 			],
-			"contributors": [1,2],
-            "startDate": "December 10, 2022",
-            "endDate" : "December 20, 2022",
-            "percentageComplete": 100
+			"contributors": [1, 2],
+			"startDate": "December 10, 2022",
+			"endDate": "December 20, 2022",
+			"percentageComplete": 100
 		},
 		{
 			"id": 3,
 			"title": "Besnik Design Emplementation with TailwindCSS",
 			"desc": "This project is a ui implementation of a dribble design with th HTML5 and TailwindCSS only.",
 			"status": "in progress",
+			"dept": "software",
 			"demoImages": [
 				"https://pbs.twimg.com/media/Fa2Di9bWIAEYTtk?format=jpg&name=small",
 				"https://pbs.twimg.com/media/Fa2Di9bWIAEYTtk?format=jpg&name=small",
 				"https://pbs.twimg.com/media/Fa2Di9bWIAEYTtk?format=jpg&name=small"
 			],
 			"contributors": [1],
-            "startDate": "December 22, 2022",
-            "endDate" : "December 28, 2022",
-            "percentageComplete": 90
+			"startDate": "December 22, 2022",
+			"endDate": "December 28, 2022",
+			"percentageComplete": 90
 		},
 		{
 			"id": 5,
 			"title": "Cliqets",
 			"desc": "A platform where you can host your events, book tickets for the event etc",
 			"status": "in progress",
+			"dept": "dev",
 			"demoImages": [
 				"https://dev.cliqets.xyz/images/Frame.png",
 				"https://dev.cliqets.xyz/images/featureImg.svg",
 				"https://dev.cliqets.xyz/_next/image?url=https%3A%2F%2Fimages.unsplash.com%2Fphoto-1523580494863-6f3031224c94%3Fixlib%3Drb-1.2.1%26ixid%3DMnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8%26auto%3Dformat%26fit%3Dcrop%26w%3D870%26q%3D80&w=1920&q=75"
 			],
 			"contributors": [6, 2, 4],
-            "startDate": "July 30, 2022",
-            "endDate" : "March 01, 2023",
-            "percentageComplete": 80
+			"startDate": "July 30, 2022",
+			"endDate": "March 01, 2023",
+			"percentageComplete": 80
 
 		},
 		{
@@ -733,15 +736,16 @@
 			"title": "Iknite Studio Official Website",
 			"desc": "Iknite Studio brings the best of your brand to the publice through Quality Web Aplications and Designs",
 			"status": "in progress",
+			"dept": "design",
 			"demoImages": [
 				"https://i0.wp.com/iknite.studio/wp-content/uploads/2022/07/Branding.png?w=1080",
 				"https://i0.wp.com/iknite.studio/wp-content/uploads/2022/07/Website-design.png?w=1080",
 				"https://i0.wp.com/iknite.studio/wp-content/uploads/2022/07/UIUX.png?w=1080"
 			],
-			"contributors": [14 , 12, 15],
-            "startDate": "October 22, 2022",
-            "endDate" : "July 19, 3",
-            "percentageComplete": 78
+			"contributors": [14, 12, 15],
+			"startDate": "October 22, 2022",
+			"endDate": "July 19, 3",
+			"percentageComplete": 78
 		}
 	],
 	"aboutIknite": {},

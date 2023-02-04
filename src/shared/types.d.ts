@@ -47,6 +47,8 @@ export interface ProjectType {
     percentageComplete: number
     liveLink?: string
     projectRepo?: string
+    difficulty: string
+    dept: string
 }
 
 export interface Data {
