@@ -39,7 +39,7 @@ function Members() {
             { 
                 isAuthenticated && 
                 <div className="">
-                    <button className="text-slate-50 bg-purple-900 rounded-md py-2 px-4 text-sm">
+                    <button className="text-slate-50 bg-purple-900 hover:bg-purple-700 rounded-md py-2 px-4 text-sm">
                         <FaUserPlus className="inline mr-1 align-center text-xl"/>
                         <span className="hidden sm:inline">Add member</span>
                     </button>
@@ -107,7 +107,7 @@ function filterMembers(members: MemberType[], searchKey:string ="",filter: strin
         case "design":
             return matched.filter(member => member.dept==="Designer");
         case "all":
-            return matched
+            return matched;
         default:
             return matched;
     }

@@ -39,16 +39,16 @@ function MemberProfile() {
         </div>
 
         <header className="w-full py-4 my-2 border-b text-slate-600">
-            <div className="flex flex-row flex-wrap gap-8 [&>*]:pb-1">
-                <NavLink to={"/members/" + memberId} className={({isActive})=> isActive?" border-purple-800 border-b-4":"border-b-transparent border-b-4"} end>
+            <div className="flex flex-row flex-wrap gap-8 [&>*]:p-1">
+                <NavLink to={"/members/" + memberId} className={({isActive})=> isActive?" border-purple-800 border-b-4 hover:bg-slate-100 rounded-t-md":"border-b-transparent border-b-4 hover:bg-slate-100 rounded-md"} end>
                     Education
                     <span className="hidden sm:inline-block">/Qualifications</span>
                 </NavLink>
-                <NavLink to={"/members/" + memberId + "/contributions"} className={({isActive})=> isActive?"border-b-4 pb-1 border-purple-800":""}>
+                <NavLink to={"/members/" + memberId + "/contributions"} className={({isActive})=> isActive?"border-b-4 pb-1 border-purple-800 hover:bg-slate-100 rounded-t-md":"hover:bg-slate-100 rounded-md"}>
                     Projects 
                     <span className="hidden sm:inline-block"> /Contributions</span>
                 </NavLink>
-                <NavLink to={"/members/" + memberId + "/contacts"} className={({isActive})=> isActive?"border-b-4 pb-1 border-purple-800":""}>
+                <NavLink to={"/members/" + memberId + "/contacts"} className={({isActive})=> isActive?"border-b-4 pb-1 border-purple-800 hover:bg-slate-100 rounded-t-md":"hover:bg-slate-100 rounded-md"}>
                     <span className="hidden sm:block">Contact information</span>
                     <span className="sm:hidden">Contacts</span>
                     </NavLink>

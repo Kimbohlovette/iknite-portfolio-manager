@@ -28,7 +28,7 @@ export default function NavBar(): JSX.Element {
             </nav>
             <div className="auth hidden  sm:flex flex-row items-center gap-8">
                 {
-                    !isAuthenticated && <button className="py-2 px-4 rounded-md bg-white text-slate-800 text-sm">Login</button>
+                    !isAuthenticated && <button className="py-2 px-4 rounded-md bg-white hover:bg-slate-100 text-slate-800 text-sm">Login</button>
                 }
                 <div className="avatar p-2 rounded-full text-xl bg-white">
                 <Icon icon="mdi:user" className='text-purple-900'/>

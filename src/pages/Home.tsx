@@ -137,7 +137,7 @@ function Project(props:{
             <p className="text-sm text-slate-600">{props.project.projectDesc}</p>
         </div>
         <Link to={"/projects/"+ props.project.projectId}>
-        <button className="text-sm bg-purple-600 py-2 my-2 w-1/2 text-slate-100 rounded-md">View</button>
+        <button className="text-sm bg-purple-600 hover:bg-purple-900 py-2 my-2 w-1/2 text-slate-100 rounded-md">View</button>
         </Link>
     </div>
     )
