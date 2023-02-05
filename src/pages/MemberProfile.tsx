@@ -219,17 +219,18 @@ export function ContactInfo():JSX.Element {
                                 type="text"
                                 id="name"
                                 name="name"
-                                placeholder="John Doe"
-                                className="border p-2 rounded-md focus:outline-none w-full min-w-0 placeholder:text-sm placeholder:text-slate-400 placeholder:font-extralight text-slate-600" />
+                                placeholder="e.g Kimboh Lovette"
+                                className="border p-2 rounded-md focus:outline-none w-full min-w-0 placeholder:text-sm placeholder:text-slate-400 placeholder:italic text-slate-600" />
                         </div>
                         <div className="email w-full">
                             <label htmlFor="email"
                                 className="block py-2">Email</label>
                             <input
+                                type="email"
                                 id="email"
                                 name="email"
-                                placeholder="johndoe@domain.com"
-                                className="border p-2 rounded-md focus:outline-none w-full min-w-0 placeholder:text-slate-400 placeholder:font-extralight placeholder:text-sm text-slate-600"/>
+                                placeholder="e.g kimbohlovette@domain.com"
+                                className="border p-2 rounded-md focus:outline-none w-full min-w-0 placeholder:text-slate-400 placeholder:font-extralight placeholder:text-sm text-slate-600 placeholder:italic"/>
                         </div>
                         <div className="message">
                             <label htmlFor="message"
@@ -241,7 +242,7 @@ export function ContactInfo():JSX.Element {
                             cols= {30}
                             rows={4}
                             placeholder="Write message here..."
-                            className="border p-2 rounded-md focus:outline-none w-full min-w-0 placeholder:text-sm placeholder:text-slate-400 placeholder:font-extralight text-slate-600">
+                            className="border p-2 rounded-md focus:outline-none w-full min-w-0 placeholder:text-sm placeholder:text-slate-400 placeholder:italic text-slate-600">
                             </textarea>
                         </div>
                         <button className="py-2 px-4 my-2 text-sm bg-purple-900 hover:bg-purple-800 hover:scale-[1.01] text-slate-50 rounded-md focus:ring-2 ring-purple-900 ring-offset-1 focus:shadow-lg shadow-purple-500">Send message</button>

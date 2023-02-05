@@ -18,7 +18,8 @@ import {
     ContactInfo, 
     Education, Contributions } from './pages/MemberProfile';
 import ProjectDetail from "./pages/ProjectDetail";
-
+import Events from './pages/Events';
+import EventDetail from './pages/EventDetail';
 
 
 const MyApp = (): JSX.Element =>{
@@ -65,7 +66,9 @@ const router = createBrowserRouter(
                         { path: '/members/:memberId/contributions', element: <Contributions />},
                         { path: '/members/:memberId/contacts', element: <ContactInfo />},
                      ]
-                }
+                },
+                { path: '/events', element: <Events />},
+                { path: '/events/:eventId', element: <EventDetail />}
             ] 
         },
     ]
