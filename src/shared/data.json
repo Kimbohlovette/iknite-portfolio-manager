@@ -654,7 +654,7 @@
 			"id": 1,
 			"title": "Adobe Homepage Clone",
 			"desc": "A clone of the adobe website with html/css only",
-			"status": "completed",
+			"status": "done",
 			"dept": "dev",
 			"demoImages": [
 				"https://pbs.twimg.com/media/Fa2Di9bWIAEYTtk?format=jpg&name=small",
@@ -672,7 +672,7 @@
 			"title": "Besnik Dribble Design with Bootstrap",
 			"desc": "This project is a ui implementation of a dribble design with th HTML5, CSS3 and Bootstrap5.",
 			"dept": "dev",
-			"status": "completed",
+			"status": "active",
 			"demoImages": [
 				"https://pbs.twimg.com/media/Fa2Di9bWIAEYTtk?format=jpg&name=small",
 				"https://pbs.twimg.com/media/Fa2Di9bWIAEYTtk?format=jpg&name=small",
@@ -688,7 +688,7 @@
 			"id": 4,
 			"title": "Farmino web app",
 			"desc": "Farmino is an agricultural e-commerce web application that helps farmers sell their farm products and also help buyers get the best of quality farm products easily",
-			"status": "completed",
+			"status": "done",
 			"dept": "dev",
 			"demoImages": [
 				"https://pbs.twimg.com/media/Fa2Di9bWIAEYTtk?format=jpg&name=small",
@@ -705,7 +705,7 @@
 			"id": 3,
 			"title": "Besnik Design Emplementation with TailwindCSS",
 			"desc": "This project is a ui implementation of a dribble design with th HTML5 and TailwindCSS only.",
-			"status": "in progress",
+			"status": "done",
 			"dept": "software",
 			"demoImages": [
 				"https://pbs.twimg.com/media/Fa2Di9bWIAEYTtk?format=jpg&name=small",
@@ -722,7 +722,7 @@
 			"id": 5,
 			"title": "Cliqets",
 			"desc": "A platform where you can host your events, book tickets for the event etc",
-			"status": "in progress",
+			"status": "active",
 			"dept": "dev",
 			"demoImages": [
 				"https://dev.cliqets.xyz/images/Frame.png",
@@ -740,7 +740,7 @@
 			"id": 6,
 			"title": "Iknite Studio Official Website",
 			"desc": "Iknite Studio brings the best of your brand to the publice through Quality Web Aplications and Designs",
-			"status": "in progress",
+			"status": "active",
 			"dept": "design",
             "difficulty": "trainee",
 			"demoImages": [
