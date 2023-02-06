@@ -6,18 +6,19 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom';
 
 function Members() {
+
     const isAuthenticated = useAppSelector(state => state.auth.isAuthenticated);
-    let members = useAppSelector( state => state.data.members);
     const [search, setSearchKey] = useState("");
     const [filter, setFilter] = useState("dev");
 
+    let members = useAppSelector( state => state.data.members);
     members = filterMembers(members, search, filter);
-
     const formatedMembers = members.map( (member, key) => {
         return (
             <Member member ={member} key={key} />
         );
     });
+    
   return (
     <div className="my-8 min-h-screen">
         <h1 className="text-2xl font-medium my-2">Members</h1>

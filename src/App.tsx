@@ -20,6 +20,7 @@ import {
 import ProjectDetail from "./pages/ProjectDetail";
 import Events from './pages/Events';
 import EventDetail from './pages/EventDetail';
+import Auth from "./pages/Auth";
 
 
 const MyApp = (): JSX.Element =>{
@@ -68,6 +69,7 @@ const router = createBrowserRouter(
                      ]
                 },
                 { path: '/events', element: <Events />},
+                { path: '/auth', element: <Auth />},
                 { path: '/events/:eventId', element: <EventDetail />}
             ] 
         },

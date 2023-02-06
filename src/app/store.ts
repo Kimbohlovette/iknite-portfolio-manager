@@ -1,4 +1,5 @@
 import { configureStore, ThunkAction, Action, createSlice } from '@reduxjs/toolkit';
+import { useNavigate } from 'react-router-dom';
 import data from '../shared/data.json'
 import { Data } from '../shared/types';
 
@@ -16,6 +17,7 @@ const authSlice = createSlice({
     reducers: {
         login: (state)=> {
             state.isAuthenticated = true;
+            console.log(state.isAuthenticated);
         },
         logout: (state) =>{
             state.isAuthenticated = false;
