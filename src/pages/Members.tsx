@@ -9,7 +9,7 @@ function Members() {
 
     const isAuthenticated = useAppSelector(state => state.auth.isAuthenticated);
     const [search, setSearchKey] = useState("");
-    const [filter, setFilter] = useState("dev");
+    const [filter, setFilter] = useState("all");
 
     let members = useAppSelector( state => state.data.members);
     members = filterMembers(members, search, filter);
