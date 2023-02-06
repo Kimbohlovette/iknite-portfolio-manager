@@ -3,7 +3,6 @@ import React from 'react';
 import { Icon } from '@iconify/react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useAppSelector } from '../app/hooks';
-import { useDispatch } from 'react-redux';
 
 export default function NavBar(): JSX.Element {
     const isAuthenticated = useAppSelector(state=> state.auth.isAuthenticated);
