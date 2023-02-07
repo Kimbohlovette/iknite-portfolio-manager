@@ -1,6 +1,7 @@
 import React from 'react';
-import { CiLogout } from 'react-icons/ci'
-import { CiLogin } from 'react-icons/ci'
+import { CiLogout } from 'react-icons/ci';
+import { CiLogin } from 'react-icons/ci';
+import { AiOutlineClose } from 'react-icons/ai'
 import { Icon } from '@iconify/react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useAppSelector, useAppDispatch } from '../app/hooks';
@@ -73,9 +74,15 @@ export default function NavBar(): JSX.Element {
                 <Icon icon="mdi:user" className='text-purple-900'/>
                 </div>
             </div>
+            {
+                !isOpen? 
             <div className="menu text-3xl sm:hidden">
                 <Icon icon="material-symbols:menu" onClick={()=>toggleDropdownMenu(isOpen=>!isOpen)} />
-            </div>
+            </div>:
+                <div className="menu text-3xl sm:hidden">
+                    <AiOutlineClose onClick={()=>toggleDropdownMenu(isOpen=>!isOpen)} />
+                </div>
+            }
         </header>
     )
 }
