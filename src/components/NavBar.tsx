@@ -1,15 +1,53 @@
 import React from 'react';
-
+import { CiLogout } from 'react-icons/ci'
+import { CiLogin } from 'react-icons/ci'
 import { Icon } from '@iconify/react';
 import { Link, useNavigate } from 'react-router-dom';
-import { useAppSelector } from '../app/hooks';
+import { useAppSelector, useAppDispatch } from '../app/hooks';
+import { useState } from 'react';
+import { authActions } from '../app/store';
 
 export default function NavBar(): JSX.Element {
     const isAuthenticated = useAppSelector(state=> state.auth.isAuthenticated);
+    const dispatch = useAppDispatch();
+    const [isOpen, toggleDropdownMenu] = useState(false);
+    const handleLogout= ()=>{
+        dispatch(authActions.logout());
+        toggleDropdownMenu(false);
+    }
     const navigate = useNavigate();
+
+    const handleLogin= ()=>{
+        navigate('/auth')
+        toggleDropdownMenu(false);
+    };
+
     return (
-        <header className="flex flex-row justify-between items-center bg-purple-900 py-4 text-white px-4 sm:px-8">
+        <header className="relative flex flex-row justify-between items-center bg-purple-900 py-4 text-white px-4 sm:px-8">
             <Link to="/"><div className="brand text-2xl font-bold">ISPM</div></Link>
+            {
+                isOpen &&
+                <nav id="mobile-nav" className="absolute left-0 top-full sm:hidden bg-slate-50 text-slate-800 font-medium px-4 py-8 w-full z-50 rounded-b-md shadow-sm">
+                    <ul className="flex flex-col divide-y [&>*]:py-3 [&>*:hover]:bg-slate-100  [&>*]:px-2  [&>*]:rounded-sm">
+                        <Link to="/"><li>Home</li></Link>
+                        <Link to="/projects"><li>Projects</li></Link>
+                        <Link to="/Members"><li>Members</li></Link>
+                        <Link to="/iknite"><li>Iknite</li></Link>
+                    </ul>
+                    {
+                        isAuthenticated?
+                            <div className="mt-5 bg-slate-100 w-fit rounded-md px-4">
+                                <CiLogout className="inline" onClick={()=>handleLogout()}/>
+                                <span>Logout</span>
+                            </div>
+                            :
+                        <div className="mt-5 bg-slate-200 w-fit rounded-md px-4 py-1" onClick={()=>handleLogin()}>
+                            <CiLogin className="inline" />
+                            <span className="px-2">Login</span>
+                        </div>
+                    }
+                </nav>
+            }
             <nav className="hidden sm:block">
                 <ul className="flex flex-row gap-4 font-medium">
                     <Link to="/">
@@ -36,7 +74,7 @@ export default function NavBar(): JSX.Element {
                 </div>
             </div>
             <div className="menu text-3xl sm:hidden">
-            <Icon icon="material-symbols:menu" />
+                <Icon icon="material-symbols:menu" onClick={()=>toggleDropdownMenu(isOpen=>!isOpen)} />
             </div>
         </header>
     )
