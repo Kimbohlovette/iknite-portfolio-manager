@@ -23,6 +23,11 @@ export default function NavBar(): JSX.Element {
         toggleDropdownMenu(false);
     };
 
+    const handleMobileNavigation = (path:string)=>{
+        navigate(path);
+        toggleDropdownMenu(false)
+    }
+
     return (
         <header className="relative flex flex-row justify-between items-center bg-purple-900 py-4 text-white px-4 sm:px-8">
             <Link to="/"><div className="brand text-2xl font-bold">ISPM</div></Link>
@@ -30,10 +35,10 @@ export default function NavBar(): JSX.Element {
                 isOpen &&
                 <nav id="mobile-nav" className="absolute left-0 top-full sm:hidden bg-slate-50 text-slate-800 font-medium px-4 py-8 w-full z-50 rounded-b-md shadow-sm">
                     <ul className="flex flex-col divide-y [&>*]:py-3 [&>*:hover]:bg-slate-100  [&>*]:px-2  [&>*]:rounded-sm">
-                        <Link to="/"><li>Home</li></Link>
-                        <Link to="/projects"><li>Projects</li></Link>
-                        <Link to="/Members"><li>Members</li></Link>
-                        <Link to="/iknite"><li>Iknite</li></Link>
+                        <li onClick={()=>handleMobileNavigation('/')}>Home</li>
+                        <li onClick={()=>handleMobileNavigation('/projects')}>Projects</li>
+                        <li onClick={()=>handleMobileNavigation('/members')}>Members</li>
+                        <li onClick={()=>handleMobileNavigation('/iknite')}>Iknite</li>
                     </ul>
                     {
                         isAuthenticated?
