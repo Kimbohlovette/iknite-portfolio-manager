@@ -51,9 +51,9 @@ function Members() {
         {
         formatedMembers.length<1 ?
         <p className="my-5">No matches found for <span className="italic text-base text-purple-600">{search}</span></p>:
-        <table className="my-5 border-spacing-y-2 [&>*]:divide-y w-full text-left">
+        <table className="my-5 border-spacing-y-2 [&>*]:divide-y w-full">
             <thead>
-                <tr className="text-sm sm:text-base [&>*]:py-1 text-slate-800 text-center sm:text-left">
+                <tr className="text-sm sm:text-base [&>*]:py-1 text-slate-800 text-left">
                     <th></th>
                     <th>Full Names</th>
                     <th className="hidden sm:block">Level</th>
@@ -84,9 +84,9 @@ function Member(prop: {member: MemberType}){
 
             <td>
                 <h1 className="">{prop.member.name}</h1>
-                <span className="text-xs sm:text-sm font-extralight text-slate-400">{prop.member.dept}</span>
+                <span className="text-xs sm:text-sm font-extralight text-slate-500">{prop.member.dept}</span>
             </td>
-            <td className="hidden sm:block text-slate-400">
+            <td className="hidden sm:table-cell text-slate-500">
                 {prop.member.level + " " + prop.member.dept}
             </td>
             <td className="text-center sm:text-left">
