@@ -49,7 +49,7 @@ function Projects() {
                 <table className="w-full text-left [&>*]:divide-y">
                     <thead>
                         <tr>
-                            <th>Project Name</th>
+                            <th className="px-2">Project Name</th>
                             <th>Status</th>
                             <th className="hidden md:table-cell">%</th>
                             <th className="hidden md:table-cell">Contributors</th>
