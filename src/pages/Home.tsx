@@ -49,7 +49,7 @@ function Home() {
                 </div>
             </section>
             <section className="py-5">
-                <h1 className="py-4 px-2 my-5 max-w-xs text-slate-800 text-2xl sm:text-3xl lg:text-4xl font-semibold">Popular Projects</h1>
+                <h1 className="pb-5 px-2 max-w-xs text-slate-800 text-2xl sm:text-3xl lg:text-4xl font-semibold">Popular Projects</h1>
                 <div className="cards flex flex-wrap gap-4 [&>*]:max-w-xs justify-center sm:justify-start">
                     {
                         shortProjects.map( (project,key) => {
