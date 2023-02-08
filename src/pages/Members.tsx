@@ -57,7 +57,7 @@ function Members() {
                     <th></th>
                     <th>Full Names</th>
                     <th className="hidden sm:block">Level</th>
-                    <th>Contributions</th>
+                    <th>Projects</th>
                 </tr>
             </thead>
             <tbody className="text-sm">
@@ -83,13 +83,13 @@ function Member(prop: {member: MemberType}){
             </td>
 
             <td>
-                <h1 className="">{prop.member.name}</h1>
-                <span className="text-xs sm:text-sm font-extralight text-slate-500">{prop.member.dept}</span>
+                <h1 className="text-slate-900">{prop.member.name}</h1>
+                <span className="text-xs sm:text-sm font-light text-slate-600">{prop.member.dept}</span>
             </td>
-            <td className="hidden sm:table-cell text-slate-500">
+            <td className="hidden sm:table-cell text-slate-600">
                 {prop.member.level + " " + prop.member.dept}
             </td>
-            <td className="text-center sm:text-left">
+            <td className="text-center sm:text-left text-slate-900">
                 {prop.member.contributions.length}
             </td>
             <Link to={"/members/"+ prop.member.id} className="absolute left-0 top-0 h-full w-full "></Link>
