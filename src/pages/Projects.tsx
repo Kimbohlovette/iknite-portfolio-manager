@@ -74,10 +74,10 @@ function Projects() {
 
 function Project(props: {project: ProjectType}){
     return (
-        <tr className="relative text-slate-500 [&>*]:py-5 hover:bg-slate-100">
-            <td className="px-2">{props.project.title}</td>
+        <tr className="relative text-slate-800 [&>*]:py-5 hover:bg-slate-100">
+            <td className="px-2 text-slate-900">{props.project.title}</td>
             <td>
-                <span className="rounded-full py-1 px-4 text-sm bg-purple-200 text-slate-600 capitalize">
+                <span className="rounded-full py-1 px-4 text-sm bg-purple-200 capitalize">
                 {props.project.status}
                 </span>
             </td>
