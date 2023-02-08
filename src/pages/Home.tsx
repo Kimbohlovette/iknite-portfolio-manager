@@ -27,7 +27,7 @@ function Home() {
     
     return (
         <div className="min-h-screen">
-            <section className="px-2">
+            <section className="px-2 border-b">
                 <div className="grid grid-cols-1 sm:grid-cols-2 py-4">
                     <div className="text flex justify-start items-center min-h-[45vh]">
                         <div>
