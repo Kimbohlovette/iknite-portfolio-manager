@@ -27,8 +27,8 @@ function Home() {
     
     return (
         <div className="min-h-screen">
-            <section>
-                <div className="grid grid-cols-1 sm:grid-cols-2 py-8">
+            <section className="px-2">
+                <div className="grid grid-cols-1 sm:grid-cols-2 py-4">
                     <div className="text flex justify-start items-center min-h-[45vh]">
                         <div>
                         <span className="inline-block text-3xl sm:text-4xl lg:text-6xl font-bold w-4/5 sm:w-full xl:w-5/6">
@@ -43,7 +43,7 @@ function Home() {
                         
                         </div>
                     </div>
-                    <div className="caption flex justify-center items-center">
+                    <div className="hidden sm:flex caption justify-center items-center">
                         <img src={studentImage} className="object-cover object-center aspect-square w-3/4" alt="" />
                     </div>
                 </div>
