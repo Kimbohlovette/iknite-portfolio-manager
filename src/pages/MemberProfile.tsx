@@ -113,18 +113,17 @@ export function Contributions() {
                         }
                     </td>
                     <td>
-                        {contribution.projectStatus}
+                        <span className="px-4 py-1 rounded-full text-sm bg-purple-100 text-slate-600 capitalize">{contribution.projectStatus}</span>
                     </td>
                     <Link to={"/projects/"+ contribution.projectId} className="absolute left-0 top-0 w-full h-full"></Link>
                 </tr>
         )
-    })
-    console.log(contributions);
+    });
 
     return (
         <div className="my-5">
             <table className="w-full [&>*]:divide-y text-s">
-                <thead>
+                <thead className="[&>tr>*]:px-4">
                     <tr  className="bg-purple-900 text-white [&>*]:py-4">
                         <td className="hidden sm:block"></td>
                         <td>Project</td>
@@ -260,7 +259,7 @@ function Social() {
     const socials = useAppSelector( state=>state.data.members.find(m=>m.id===memberId))?.mediaLinks;
     return (
         <div className="rounded-md w-full shadow-inner border p-4 my-8 sm:text-center">
-           <h1 className="py-4 text-xl font-medium">Contact Information</h1>
+           <h1 className="py-4 text-xl font-medium">Socials</h1>
            <div className="flex flex-row sm:justify-center my-2 gap-4 text-4xl text-purple-900 [&>*]:cursor-pointer hover:[&>*]:scale-[1.03]">
             { socials?.linkedin && 
             <a href={socials.linkedin} target="_blank" rel='noreferrer'>
