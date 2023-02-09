@@ -1,13 +1,14 @@
-import { RxCaretRight, RxCaretLeft } from 'react-icons/rx'
-import { Link, useParams } from 'react-router-dom';
-import { useAppSelector } from '../app/hooks';
+import React from "react";
+import { RxCaretRight, RxCaretLeft } from "react-icons/rx";
+import { Link, useParams } from "react-router-dom";
+import { useAppSelector } from "../app/hooks";
 
 function PojectDetail() {
 
-    const projectId: number = Number(useParams()['projectId']);
+    const projectId = Number(useParams()["projectId"]);
 
     const project = useAppSelector( state => state.data.projects)
-    .filter( project => project['id']===projectId)[0];
+    .filter( project => project["id"]===projectId)[0];
 
     const members = useAppSelector(state => state.data.members);
 
@@ -16,12 +17,12 @@ function PojectDetail() {
     .map((member, key) => {
         return (
             <Link key={key} to={"/members/"+ member.id}>
-                <img  
-                src={member.profileImage} 
+                <img
+                src={member.profileImage}
                 alt={member.name}
                 className="max-h-8 rounded-full" />
             </Link>
-        )
+        );
     });
 
     return (
@@ -38,7 +39,7 @@ function PojectDetail() {
             <div className="flex-1">
                 <div>
                     <h1 className="text-2xl sm:text-3xl text-slate-700 font-bold my-4 max-w-md">
-                        {project.title} 
+                        {project.title}
                     </h1>
                     <span className="text-sm ml-2 px-4 py-1 bg-purple-200 rounded-full">{project.status}</span>
 
@@ -48,7 +49,7 @@ function PojectDetail() {
 
                     <div className="flex flex-row flex-wrap py-2 w-full [&>*]:flex-1 gap-x-4">
                         <div className="py-4">
-                            <h2 className="font-semibold">Date Started</h2>   
+                            <h2 className="font-semibold">Date Started</h2>
                             <span className="text-purple-900 font-semibold text-lg">
                                 {project.startDate}
                             </span>
@@ -77,7 +78,7 @@ function PojectDetail() {
                 </div>
             </div>
         </div>
-    )
+    );
 }
 
-export default PojectDetail 
+export default PojectDetail;

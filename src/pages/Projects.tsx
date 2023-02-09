@@ -1,26 +1,27 @@
-import { useState } from 'react'
-import { FaCaretDown } from 'react-icons/fa'
-import { TbApps } from "react-icons/tb"
-import { useAppSelector } from '../app/hooks';
-import { ProjectType } from '../shared/types';
-import { Link } from 'react-router-dom';
+import React from "react";
+import { useState } from "react";
+import { FaCaretDown } from "react-icons/fa";
+import { TbApps } from "react-icons/tb";
+import { useAppSelector } from "../app/hooks";
+import { ProjectType } from "../shared/types";
+import { Link } from "react-router-dom";
 
 function Projects() {
 
     const [open, toggleDropdown] = useState(false);
-    const [filter, setFilter] = useState('all');
+    const [filter, setFilter] = useState("all");
     const handleFilter = (key:string)=>{
-        setFilter(filter=>key);
-        toggleDropdown(open=>false);
-    }
+        setFilter(key);
+        toggleDropdown(false);
+    };
 
     let projects = useAppSelector(state => state.data.projects);
-    projects = filterProjects(projects,filter)
+    projects = filterProjects(projects,filter);
     return (
         <div className="my-8 min-h-screen">
             <header className="flex justify-between items-center flex-row">
                 <div className="relative" id="dropdown">
-                    <button 
+                    <button
                     className="text-purple-900 hover:text-purple-600 py-2 px-4 border rounded-md"
                     onClick={
                         ()=> {
@@ -32,9 +33,9 @@ function Projects() {
                     className="dropdown absolute z-50 top-full mt-2 rounded-md border border-purple-200 shadow-inner bg-white py-5 px-2 min-w-max"
                     hidden={!open}>
                         <ul className="text-slate-600 [&>*]:py-2 [&>*]:px-4 hover:[&>*]:bg-slate-100 [&>*]:rounded-md [&>*]:cursor-pointer">
-                            <li  onClick={()=>handleFilter('all')}>All Projects</li>
-                            <li onClick={()=>handleFilter('design')}>Design Project</li>
-                            <li onClick={()=>handleFilter('dev')}>Software Developmen</li>
+                            <li  onClick={()=>handleFilter("all")}>All Projects</li>
+                            <li onClick={()=>handleFilter("design")}>Design Project</li>
+                            <li onClick={()=>handleFilter("dev")}>Software Developmen</li>
                         </ul>
                     </div>
                 </div>
@@ -54,7 +55,7 @@ function Projects() {
                             <th className="hidden md:table-cell">%</th>
                             <th className="hidden md:table-cell">Contributors</th>
                             <th className="hidden lg:table-cell">Start Date</th>
-                            <th className="hidden lg:table-cell">End Date</th> 
+                            <th className="hidden lg:table-cell">End Date</th>
                         </tr>
                     </thead>
                     <tbody className="text-sm">
@@ -62,14 +63,14 @@ function Projects() {
                             projects.map( (project, key) => {
                                 return (
                                 <Project key={key} project={project}/>
-                                )
+                                );
                             })
                         }
                     </tbody>
                 </table>
             </div>
         </div>
-    )
+    );
 }
 
 function Project(props: {project: ProjectType}){
@@ -87,12 +88,12 @@ function Project(props: {project: ProjectType}){
             <td className="hidden lg:table-cell">{props.project.endDate}</td>
             <Link to={"/projects/"+ props.project.id} className="absolute left-0 top-0 h-full w-full "></Link>
         </tr>
-    )
+    );
 
 }
 
 
-export default Projects
+export default Projects;
 
 
 function filterProjects(list: ProjectType[],key: string): ProjectType[] {

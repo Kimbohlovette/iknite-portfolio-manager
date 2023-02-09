@@ -1,12 +1,12 @@
-import React from 'react';
-import { CiLogout } from 'react-icons/ci';
-import { CiLogin } from 'react-icons/ci';
-import { AiOutlineClose } from 'react-icons/ai'
-import { Icon } from '@iconify/react';
-import { Link, useNavigate } from 'react-router-dom';
-import { useAppSelector, useAppDispatch } from '../app/hooks';
-import { useState } from 'react';
-import { authActions } from '../app/store';
+import React from "react";
+import { CiLogout } from "react-icons/ci";
+import { CiLogin } from "react-icons/ci";
+import { AiOutlineClose } from "react-icons/ai";
+import { Icon } from "@iconify/react";
+import { Link, useNavigate } from "react-router-dom";
+import { useAppSelector, useAppDispatch } from "../app/hooks";
+import { useState } from "react";
+import { authActions } from "../app/store";
 
 export default function NavBar(): JSX.Element {
     const isAuthenticated = useAppSelector(state=> state.auth.isAuthenticated);
@@ -15,18 +15,18 @@ export default function NavBar(): JSX.Element {
     const handleLogout= ()=>{
         dispatch(authActions.logout());
         toggleDropdownMenu(false);
-    }
+    };
     const navigate = useNavigate();
 
     const handleLogin= ()=>{
-        navigate('/auth')
+        navigate("/auth");
         toggleDropdownMenu(false);
     };
 
     const handleMobileNavigation = (path:string)=>{
         navigate(path);
-        toggleDropdownMenu(false)
-    }
+        toggleDropdownMenu(false);
+    };
 
     return (
         <header className="relative flex flex-row justify-between items-center bg-purple-900 py-4 text-white px-4 sm:px-8">
@@ -35,10 +35,10 @@ export default function NavBar(): JSX.Element {
                 isOpen &&
                 <nav id="mobile-nav" className="absolute left-0 top-full sm:hidden bg-slate-50 text-slate-800 font-medium px-4 py-8 w-full z-50 rounded-b-md shadow-sm">
                     <ul className="flex flex-col divide-y [&>*]:py-3 [&>*:hover]:bg-slate-100  [&>*]:px-2  [&>*]:rounded-sm">
-                        <li onClick={()=>handleMobileNavigation('/')}>Home</li>
-                        <li onClick={()=>handleMobileNavigation('/projects')}>Projects</li>
-                        <li onClick={()=>handleMobileNavigation('/members')}>Members</li>
-                        <li onClick={()=>handleMobileNavigation('/iknite')}>Iknite</li>
+                        <li onClick={()=>handleMobileNavigation("/")}>Home</li>
+                        <li onClick={()=>handleMobileNavigation("/projects")}>Projects</li>
+                        <li onClick={()=>handleMobileNavigation("/members")}>Members</li>
+                        <li onClick={()=>handleMobileNavigation("/iknite")}>Iknite</li>
                     </ul>
                     {
                         isAuthenticated?
@@ -73,14 +73,14 @@ export default function NavBar(): JSX.Element {
             </nav>
             <div className="auth hidden  sm:flex flex-row items-center gap-8">
                 {
-                    !isAuthenticated && <button className="py-2 px-4 rounded-md bg-white hover:bg-slate-100 text-slate-800 text-sm" onClick={()=>navigate('/auth')}>Login</button>
+                    !isAuthenticated && <button className="py-2 px-4 rounded-md bg-white hover:bg-slate-100 text-slate-800 text-sm" onClick={()=>navigate("/auth")}>Login</button>
                 }
                 <div className="avatar p-2 rounded-full text-xl bg-white">
                 <Icon icon="mdi:user" className='text-purple-900'/>
                 </div>
             </div>
             {
-                !isOpen? 
+                !isOpen?
             <div className="menu text-3xl sm:hidden">
                 <Icon icon="material-symbols:menu" onClick={()=>toggleDropdownMenu(isOpen=>!isOpen)} />
             </div>:
@@ -89,5 +89,5 @@ export default function NavBar(): JSX.Element {
                 </div>
             }
         </header>
-    )
+    );
 }

@@ -1,3 +1,4 @@
+import React from "react";
 import { Link } from "react-router-dom";
 
 export default function Error() {
@@ -9,6 +10,6 @@ export default function Error() {
                 <Link to="/" className="text-blue-400 my-2">Go Home</Link>
             </div>
         </div>
-    )
+    );
 }
 

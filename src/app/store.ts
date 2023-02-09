@@ -1,8 +1,8 @@
-import { configureStore, ThunkAction, Action, createSlice } from '@reduxjs/toolkit';
-import data from '../shared/data.json'
-import { Data } from '../shared/types';
+import { configureStore, ThunkAction, Action, createSlice } from "@reduxjs/toolkit";
+import data from "../shared/data.json";
+import { Data } from "../shared/types";
 
-let initialDataState: Data = data;
+const initialDataState: Data = data;
 
 const dataSlice = createSlice({
     name: "data",
@@ -25,9 +25,9 @@ const authSlice = createSlice({
 });
 
 export const store = configureStore({
-  reducer: { 
-    data: dataSlice.reducer, 
-    auth: authSlice.reducer},
+  reducer: {
+    data: dataSlice.reducer,
+    auth: authSlice.reducer}
 });
 
 export const dataActions = dataSlice.actions;

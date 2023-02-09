@@ -1,16 +1,17 @@
-import { FcGoogle } from 'react-icons/fc';
-import { AiFillTwitterCircle } from 'react-icons/ai'
-import { Link, useNavigate } from 'react-router-dom';
-import { useAppDispatch } from '../app/hooks';
-import { authActions } from '../app/store';
+import React from "react";
+import { FcGoogle } from "react-icons/fc";
+import { AiFillTwitterCircle } from "react-icons/ai";
+import { Link, useNavigate } from "react-router-dom";
+import { useAppDispatch } from "../app/hooks";
+import { authActions } from "../app/store";
 function Auth() {
     const dispatch = useAppDispatch();
     const navigate = useNavigate();
 
     const handleSignIn = ()=>{
         dispatch(authActions.login());
-        navigate('/');
-    }
+        navigate("/");
+    };
     return (
         <div className="min-h-screen w-full fixed bg-white left-0 top-0 overflow-y-scroll">
             <div className="flex justify-center items-center">

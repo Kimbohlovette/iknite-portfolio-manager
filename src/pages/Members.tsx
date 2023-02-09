@@ -1,9 +1,9 @@
-import React from 'react'
-import { FaUserPlus } from 'react-icons/fa'
-import {  useAppSelector } from '../app/hooks';
-import { MemberType } from '../shared/types';
-import { useState } from 'react';
-import { Link } from 'react-router-dom';
+import React from "react";
+import { FaUserPlus } from "react-icons/fa";
+import {  useAppSelector } from "../app/hooks";
+import { MemberType } from "../shared/types";
+import { useState } from "react";
+import { Link } from "react-router-dom";
 
 function Members() {
 
@@ -24,21 +24,21 @@ function Members() {
         <h1 className="text-2xl font-medium my-2">Members</h1>
         <div className="flex justify-between items-start">
             <div className="filters flex flex-row flex-wrap gap-2 [&>*:focus]:shadow [&>*:focus]:shadow-purple-200 [&>*:focus]:border-purple-400">
-                <input 
-                type="search" 
-                name="search" 
+                <input
+                type="search"
+                name="search"
                 id="search-name"
                 value={search}
-                onChange={(e)=>setSearchKey(search=>e.target.value)}
+                onChange={(e)=>setSearchKey(e.target.value)}
                 placeholder="Search for people"
                 className="border focus:outline-none py-2 px-4 min-w-0 rounded-md"
                 />
-                <button className="border py-2 px-4 rounded-md text-slate-600 text-sm w-fit" onClick={()=>setFilter('all')}>All</button>
-                <button className="border py-2 px-4 rounded-md text-slate-600 text-sm w-fit" onClick={()=>setFilter('design')}>Designers</button>
-                <button className="border py-2 px-4 rounded-md text-slate-600 text-sm w-fit" onClick={()=>setFilter('dev')}>Developers</button>
+                <button className="border py-2 px-4 rounded-md text-slate-600 text-sm w-fit" onClick={()=>setFilter("all")}>All</button>
+                <button className="border py-2 px-4 rounded-md text-slate-600 text-sm w-fit" onClick={()=>setFilter("design")}>Designers</button>
+                <button className="border py-2 px-4 rounded-md text-slate-600 text-sm w-fit" onClick={()=>setFilter("dev")}>Developers</button>
             </div>
-            { 
-                isAuthenticated && 
+            {
+                isAuthenticated &&
                 <div className="">
                     <button className="text-slate-50 bg-purple-900 hover:bg-purple-700 rounded-md py-2 px-4 text-sm">
                         <FaUserPlus className="inline mr-1 align-center text-xl"/>
@@ -66,7 +66,7 @@ function Members() {
         </table>
         }
     </div>
-  )
+  );
 }
 
 
@@ -89,22 +89,22 @@ function Member(prop: {member: MemberType}){
             <td className="hidden sm:table-cell text-slate-600">
                 {prop.member.level + " " + prop.member.dept}
             </td>
-            <td className="text-center sm:text-left text-slate-900">
+            <td className="text-slate-900">
                 {prop.member.contributions.length}
             </td>
             <Link to={"/members/"+ prop.member.id} className="absolute left-0 top-0 h-full w-full "></Link>
         </tr>
-    )
+    );
 }
 
 export default Members;
 
 
-function filterMembers(members: MemberType[], searchKey:string ="",filter: string ="all"): MemberType[]{
-    let matched = members.filter( member => (new RegExp(searchKey.toLocaleLowerCase())).test(member.name.toLowerCase()));
+function filterMembers(members: MemberType[], searchKey ="",filter ="all"): MemberType[]{
+    const matched = members.filter( member => (new RegExp(searchKey.toLocaleLowerCase())).test(member.name.toLowerCase()));
     switch(filter){
         case "dev":
-            return matched.filter( member => member.dept==='Software Developer');
+            return matched.filter( member => member.dept==="Software Developer");
         case "design":
             return matched.filter(member => member.dept==="Designer");
         case "all":

@@ -1,8 +1,10 @@
-import { Icon } from '@iconify/react';
-import { Link } from 'react-router-dom';
-import { useAppSelector } from '../app/hooks';
-import { MemberType } from '../shared/types';
-const studentImage = require("../shared/student.png")
+import React from "react";
+import { Icon } from "@iconify/react";
+import { Link } from "react-router-dom";
+import { useAppSelector } from "../app/hooks";
+import { MemberType } from "../shared/types";
+// eslint-disable-next-line @typescript-eslint/no-var-requires
+const studentImage = require("../shared/student.png");
 
 function Home() {
     const shortProjects = useAppSelector( state => state.data)
@@ -21,8 +23,8 @@ function Home() {
     .members
     .filter( (member) => member.level.toLocaleLowerCase()==="lead")
     .map( (member, key) => {
-        return ( <Member key={key} member={member} />)
-    })
+        return ( <Member key={key} member={member} />);
+    });
 
     
     return (
@@ -36,7 +38,7 @@ function Home() {
                         </span>
                         <span className="inline-block my-4 w-3/4 font-bold text-slate-600">Get to know more about Iknite Space talents and their projects here.</span>
                         <Link to="/members">
-                            <button className="block text-sm py-2 px-4 my-4 bg-purple-800 text-slate-50 rounded-md shadow-sm hover:bg-purple-900">
+                            <button className="block text-sm py-2 px-4 my-4 bg-secondary-800 text-slate-50 rounded-md shadow-sm hover:bg-secondary-900">
                         <Icon icon="clarity:employee-solid" className="inline-block mr-2 text-base" />
                             Hire an expert</button>
                         </Link>
@@ -55,7 +57,7 @@ function Home() {
                         shortProjects.map( (project,key) => {
                             return (
                                 <Project key={key} project = {project} />
-                            )
+                            );
                         })
                     }
                 </div>
@@ -95,7 +97,7 @@ function Event() {
                 </div>
             </div>
         </div>
-    )
+    );
 }
 function Member(props: { member: MemberType }) {
     return (
@@ -118,12 +120,12 @@ function Member(props: { member: MemberType }) {
         </div>
         <Link to={"/members/"+ props.member.id } className="absolute top-0 left-0 h-full w-full">  </Link>
     </div>
-    )
+    );
 }
 function Project(props:{
     project: {
-        projectId: number, 
-        projectImage: string, 
+        projectId: number,
+        projectImage: string,
         projectTitle: string,
         projectDesc: string}
     }) {
@@ -140,7 +142,7 @@ function Project(props:{
         <button className="text-sm bg-purple-600 hover:bg-purple-900 py-2 my-2 w-1/2 text-slate-100 rounded-md">View</button>
         </Link>
     </div>
-    )
+    );
 }
 
 export default Home;

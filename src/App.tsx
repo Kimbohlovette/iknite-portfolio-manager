@@ -1,25 +1,25 @@
 import React from "react";
 import { createBrowserRouter,
-    // createRoutesFromElements, 
+    // createRoutesFromElements,
     Outlet,
-    // Route, 
-    RouterProvider 
+    // Route,
+    RouterProvider
 } from "react-router-dom";
 
 import Footer from "./components/Footer";
-import NavBar from './components/NavBar';
-import Home from './pages/Home';
+import NavBar from "./components/NavBar";
+import Home from "./pages/Home";
 import Projects from "./pages/Projects";
-import Members from './pages/Members';
+import Members from "./pages/Members";
 import Iknite from "./pages/Iknite";
-import Error from "./pages/Error"
-import MemberProfile from './pages/MemberProfile';
-import { 
-    ContactInfo, 
-    Education, Contributions } from './pages/MemberProfile';
+import Error from "./pages/Error";
+import MemberProfile from "./pages/MemberProfile";
+import {
+    ContactInfo,
+    Education, Contributions } from "./pages/MemberProfile";
 import ProjectDetail from "./pages/ProjectDetail";
-import Events from './pages/Events';
-import EventDetail from './pages/EventDetail';
+import Events from "./pages/Events";
+import EventDetail from "./pages/EventDetail";
 import Auth from "./pages/Auth";
 
 
@@ -32,7 +32,7 @@ const MyApp = (): JSX.Element =>{
                 </div>
                 <Footer />
             </div>);
-        }
+        };
 
 // const routeDefinitions = createRoutesFromElements(
 //     <Route element={<MyApp />}>
@@ -45,34 +45,34 @@ const MyApp = (): JSX.Element =>{
 // const router = createBrowserRouter(routeDefinitions)
 
 const router = createBrowserRouter(
-    [    // Route, 
-        { 
+    [    // Route,
+        {
             element: <MyApp />,
             errorElement: <Error />,
             children: [
-                {   path: '/', element: <Home />},
-                {   path: '/projects', element: <Projects />},
-                {   
-                    path: '/projects/:projectId', element: <ProjectDetail /> },
-                {   
-                    path: '/members', 
+                {   path: "/", element: <Home />},
+                {   path: "/projects", element: <Projects />},
+                {
+                    path: "/projects/:projectId", element: <ProjectDetail /> },
+                {
+                    path: "/members",
                     element: <Members />
                 },
-                {   path: '/iknite', element: <Iknite />},
-                { 
-                    path: '/members/:memberId', 
+                {   path: "/iknite", element: <Iknite />},
+                {
+                    path: "/members/:memberId",
                     element: <MemberProfile />,
                     children: [
-                        { path: '/members/:memberId', element: <Education  />},
-                        { path: '/members/:memberId/contributions', element: <Contributions />},
-                        { path: '/members/:memberId/contacts', element: <ContactInfo />},
+                        { path: "/members/:memberId", element: <Education  />},
+                        { path: "/members/:memberId/contributions", element: <Contributions />},
+                        { path: "/members/:memberId/contacts", element: <ContactInfo />}
                      ]
                 },
-                { path: '/events', element: <Events />},
-                { path: '/auth', element: <Auth />},
-                { path: '/events/:eventId', element: <EventDetail />}
-            ] 
-        },
+                { path: "/events", element: <Events />},
+                { path: "/auth", element: <Auth />},
+                { path: "/events/:eventId", element: <EventDetail />}
+            ]
+        }
     ]
 );
 
@@ -85,5 +85,5 @@ function App() {
   );
 }
 
-export default App; 
+export default App;
 
