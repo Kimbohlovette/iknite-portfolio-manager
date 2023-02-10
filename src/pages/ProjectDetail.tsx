@@ -20,7 +20,7 @@ function PojectDetail() {
                 <img
                 src={member.profileImage}
                 alt={member.name}
-                className="max-h-8 rounded-full" />
+                className="max-h-8 rounded-full hover:scale-105 transition-transform duration-100 ease-linear" />
             </Link>
         );
     });
@@ -41,35 +41,29 @@ function PojectDetail() {
                     <h1 className="text-2xl sm:text-3xl text-slate-700 font-bold my-4 max-w-md">
                         {project.title}
                     </h1>
-                    <span className="text-sm ml-2 px-4 py-1 bg-purple-200 rounded-full">{project.status}</span>
+                    <span className="text-sm ml-2 px-4 py-1 bg-secondary-50 rounded-full capitalize">{project.status}</span>
 
-                    <div className="py-4 px-2 bg-slate-50 rounded-md my-5">
+                    <div className="py-4 px-2 bg-slate-50 rounded-md my-4">
                         <p className="py-2 text-slate-600">{project.desc}</p>
                     </div>
 
-                    <div className="flex flex-row flex-wrap py-2 w-full [&>*]:flex-1 gap-x-4">
-                        <div className="py-4">
-                            <h2 className="font-semibold">Date Started</h2>
-                            <span className="text-purple-900 font-semibold text-lg">
+                    <div className="flex flex-col flex-wrap py-2 w-full [&>*]:flex-1">
+                        <div className="my-2">
+                            <h2 className="font-medium text-primary-900">Date Started</h2>
+                            <span className="text-primary-600 text-sm">
                                 {project.startDate}
                             </span>
                         </div>
 
-                        <div className="py-4">
-                            <h2 className="font-semibold">Date Completed</h2>
-                            <span className="text-purple-900 font-semibold text-lg">
+                        <div className="my-2">
+                            <h2 className="font-medium text-primary-900">Date Completed</h2>
+                            <span className="text-primary-600 text-sm">
                                 {project.endDate}
                             </span>
                         </div>
-                        <div className="py-4">
-                            <h2 className="font-semibold">Percentage complete</h2>
-                            <div className="text-purple-900 font-semibold text-lg">
-                                {project.percentageComplete + "%"}
-                            </div>
-                        </div>
                     </div>
-                    <div className="py-4">
-                        <h2 className="text-lg font-semibold">Contributors</h2>
+                    <div className="my-2">
+                        <h2 className="font-medium text-primary-900">Contributors</h2>
                         <div className="flex flex-row my-2">
                             {contributors}
                         </div>

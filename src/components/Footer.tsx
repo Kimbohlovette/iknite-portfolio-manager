@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 function Footer() {
     return (
-    <footer className="py-8 px-4 sm:px-8 lg:px-12 bg-purple-900 text-slate-50">
+    <footer className="py-8 px-4 sm:px-8 lg:px-12 bg-primary-900 text-slate-200">
         <div className="flex flex-col md:flex-row">
             <div className="sitemap flex-1">
                 <h1 className="py-3 text-lg font-semibold">Sitemap</h1>
