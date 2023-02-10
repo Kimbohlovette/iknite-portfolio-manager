@@ -28,28 +28,28 @@ function MemberProfile() {
                 <h1 className="py-2 font-semibold text-2xl uppercase">{member.name}</h1>
                 <p className="text-slate-600 py-2">{member.dept+" ("+member.level+")"}</p>
                 <div className="flex flex-row gap-2">
-                    <div className="reviews flex flex-row items-center text-purple-900">
+                    <div className="reviews flex flex-row items-center text-secondary-900">
                         <Icon icon="material-symbols:star" />
                         <Icon icon="material-symbols:star" />
                         <Icon icon="material-symbols:star" />
                         <Icon icon="material-symbols:star" />
                     </div>
-                    <span className="text-purple-800 text-sm">( 25 reviews)</span>
+                    <span className="text-primary-800 text-sm">(25 reviews)</span>
                 </div>
             </div>
         </div>
 
         <header className="w-full py-4 my-2 border-b text-slate-600">
             <div className="flex flex-row flex-wrap gap-8 [&>*]:p-1">
-                <NavLink to={"/members/" + memberId} className={({isActive})=> isActive?" border-purple-800 border-b-4 hover:bg-slate-100 rounded-t-md":"border-b-transparent border-b-4 hover:bg-slate-100 rounded-md"} end>
+                <NavLink to={"/members/" + memberId} className={({isActive})=> isActive?" border-secondary-900 border-b-4 hover:bg-slate-100 rounded-t-md":"border-b-transparent border-b-4 hover:bg-slate-100 rounded-md"} end>
                     Education
                     <span className="hidden sm:inline-block">/Qualifications</span>
                 </NavLink>
-                <NavLink to={"/members/" + memberId + "/contributions"} className={({isActive})=> isActive?"border-b-4 pb-1 border-purple-800 hover:bg-slate-100 rounded-t-md":"hover:bg-slate-100 rounded-md"}>
+                <NavLink to={"/members/" + memberId + "/contributions"} className={({isActive})=> isActive?"border-b-4 pb-1 border-secondary-900 hover:bg-slate-100 rounded-t-md":"hover:bg-slate-100 rounded-md"}>
                     Projects
                     <span className="hidden sm:inline-block"> /Contributions</span>
                 </NavLink>
-                <NavLink to={"/members/" + memberId + "/contacts"} className={({isActive})=> isActive?"border-b-4 pb-1 border-purple-800 hover:bg-slate-100 rounded-t-md":"hover:bg-slate-100 rounded-md"}>
+                <NavLink to={"/members/" + memberId + "/contacts"} className={({isActive})=> isActive?"border-b-4 pb-1 border-secondary-900 hover:bg-slate-100 rounded-t-md":"hover:bg-slate-100 rounded-md"}>
                     <span className="hidden sm:block">Contact information</span>
                     <span className="sm:hidden">Contacts</span>
                     </NavLink>
@@ -114,7 +114,7 @@ export function Contributions() {
                         }
                     </td>
                     <td>
-                        <span className="px-4 py-1 rounded-full text-sm bg-purple-100 text-slate-600 capitalize">{contribution.projectStatus}</span>
+                        <span className="px-4 py-1 rounded-full text-sm bg-secondary-50 text-slate-600 capitalize">{contribution.projectStatus}</span>
                     </td>
                     <Link to={"/projects/"+ contribution.projectId} className="absolute left-0 top-0 w-full h-full"></Link>
                 </tr>
@@ -125,7 +125,7 @@ export function Contributions() {
         <div className="my-5">
             <table className="w-full [&>*]:divide-y text-s">
                 <thead className="[&>tr>*]:px-4">
-                    <tr  className="bg-purple-900 text-white [&>*]:py-4">
+                    <tr  className="text-slate-900 font-semibold [&>*]:py-4 border-b">
                         <td className="hidden sm:block"></td>
                         <td>Project</td>
                         <td className="hidden sm:block">Contributors</td>
@@ -145,11 +145,15 @@ export function Contributions() {
 function Certificate(props:{cert: Qualification}){
     return (
         <div>
-            <h1 className="my-1 text-lg text-slate-700 font-semibold">{props.cert.degree}</h1>
+            <h1 className="my-1 text-lg text-primary-900 font-semibold">{props.cert.degree}</h1>
             <p className="py-1 text-slate-500">{props.cert.institution}</p>
-            <p className="py-1 text-purple-900">{"From" + props.cert.startDate + "to " + props.cert.endDate }</p>
+            <p className="py-1 text-primary-800">
+                <pre>{"From " + props.cert.startDate + " to " + props.cert.endDate }</pre>
+            </p>
             <div className="text-slate-600 my-2">Remark:
-                <span className="p-1 ml-4 rounded-lg text-sm bg-purple-200">{" " + props.cert.remark}</span>
+                <span className="p-1 ml-4 rounded-lg text-sm bg-primary-200">
+                    {" " + props.cert.remark}
+                </span>
             </div>
         </div>
     );
@@ -184,7 +188,7 @@ export function ContactInfo():JSX.Element {
                 <div className="flex flex-col gap-4 sm:flex-row">
                     <ul className="flex-1 flex flex-col gap-4">
                         <li>
-                            <h2 className="text-purple-900 font-medium">
+                            <h2 className="text-primary-900 font-medium">
                             <Icon icon="ic:baseline-email" className="inline-block text-xl mr-2" />
                                 Email
                             </h2>
@@ -194,7 +198,7 @@ export function ContactInfo():JSX.Element {
                             </ul>
                         </li>
                         <li>
-                            <h2 className="text-purple-900 font-medium">
+                            <h2 className="text-primary-900 font-medium">
                             <Icon icon="material-symbols:mobile-friendly-rounded" className="inline-block text-xl mr-2" />
                             Mobile & Whatsapp</h2>
 
@@ -203,7 +207,7 @@ export function ContactInfo():JSX.Element {
                             </ul>
                         </li>
                         <li>
-                            <h2 className="text-purple-900 font-medium">
+                            <h2 className="text-primary-900 font-medium">
                             <Icon icon="ph:address-book-fill" className="inline-block text-xl mr-2" />
                             Address Lines</h2>
                             <ul className="text-sm text-slate-500 px-10 flex flex-col gap-2 py-2 list-disc">
@@ -245,7 +249,7 @@ export function ContactInfo():JSX.Element {
                             className="border p-2 rounded-md focus:outline-none w-full min-w-0 placeholder:text-sm placeholder:text-slate-400 placeholder:italic text-slate-600">
                             </textarea>
                         </div>
-                        <button className="py-2 px-4 my-2 text-sm bg-purple-900 hover:bg-purple-800 hover:scale-[1.01] text-slate-50 rounded-md focus:ring-2 ring-purple-900 ring-offset-1 focus:shadow-lg shadow-purple-500">Send message</button>
+                        <button className="py-2 px-4 my-2 text-sm bg-primary-900 hover:bg-primary-800 hover:scale-[1.01] text-slate-50 rounded-md focus:ring-2 ring-primary-900 ring-offset-1s">Send message</button>
 
                     </div>
                 </div>
@@ -261,7 +265,7 @@ function Social() {
     return (
         <div className="rounded-md w-full shadow-inner border p-4 my-8 sm:text-center">
            <h1 className="py-4 text-xl font-medium">Socials</h1>
-           <div className="flex flex-row sm:justify-center my-2 gap-4 text-4xl text-purple-900 [&>*]:cursor-pointer hover:[&>*]:scale-[1.03]">
+           <div className="flex flex-row sm:justify-center my-2 gap-4 text-4xl text-primary-900 [&>*]:cursor-pointer hover:[&>*]:scale-[1.03]">
             { socials?.linkedin &&
             <a href={socials.linkedin} target="_blank" rel='noreferrer'>
                 <Icon icon="mdi:linkedin" />
