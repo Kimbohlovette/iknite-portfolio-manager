@@ -1,4 +1,5 @@
 import React from "react";
+import { GiDiamonds } from "react-icons/gi";
 import { CiLogout } from "react-icons/ci";
 import { CiLogin } from "react-icons/ci";
 import { AiOutlineClose } from "react-icons/ai";
@@ -29,8 +30,18 @@ export default function NavBar(): JSX.Element {
     };
 
     return (
-        <header className="relative flex flex-row justify-between items-center bg-purple-900 py-4 text-white px-4 sm:px-8">
-            <Link to="/"><div className="brand text-2xl font-bold">ISPM</div></Link>
+        <header className="relative flex flex-row justify-between items-center bg-primary-900 py-4 text-white px-4 sm:px-8">
+            <Link to="/">
+                <div className="brand flex flex-row justify-center gap-1 items-center font-black text-primary-50">
+                    <span className="">
+                    <GiDiamonds className="-rotate-[30deg] text-xl text-secondary-900" />
+                    </span>
+                    <div>
+                        <span className="leading-3">iknite</span>
+                        <span className="leading-3">.space</span>
+                    </div>
+                </div>
+            </Link>
             {
                 isOpen &&
                 <nav id="mobile-nav" className="absolute left-0 top-full sm:hidden bg-slate-50 text-slate-800 font-medium px-4 py-8 w-full z-50 rounded-b-md shadow-sm">
@@ -76,7 +87,7 @@ export default function NavBar(): JSX.Element {
                     !isAuthenticated && <button className="py-2 px-4 rounded-md bg-white hover:bg-slate-100 text-slate-800 text-sm" onClick={()=>navigate("/auth")}>Login</button>
                 }
                 <div className="avatar p-2 rounded-full text-xl bg-white">
-                <Icon icon="mdi:user" className='text-purple-900'/>
+                <Icon icon="mdi:user" className='text-primary-900'/>
                 </div>
             </div>
             {

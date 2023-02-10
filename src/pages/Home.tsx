@@ -33,12 +33,12 @@ function Home() {
                 <div className="grid grid-cols-1 sm:grid-cols-2 py-4">
                     <div className="text flex justify-start items-center min-h-[45vh]">
                         <div>
-                        <span className="inline-block text-3xl sm:text-4xl lg:text-6xl font-bold w-4/5 sm:w-full xl:w-5/6">
+                        <span className="inline-block text-3xl sm:text-4xl lg:text-6xl font-bold w-4/5 sm:w-full xl:w-5/6 text-primary-900">
                             Showcasing Iknite Space talents
                         </span>
-                        <span className="inline-block my-4 w-3/4 font-bold text-slate-600">Get to know more about Iknite Space talents and their projects here.</span>
+                        <span className="inline-block my-4 w-3/4 font-bold text-slate-700">Get to know more about Iknite Space talents and their projects here.</span>
                         <Link to="/members">
-                            <button className="block text-sm py-2 px-4 my-4 bg-secondary-800 text-slate-50 rounded-md shadow-sm hover:bg-secondary-900">
+                            <button className="block text-sm py-2 px-4 my-4 bg-secondary-900 text-slate-50 rounded-md shadow-sm hover:bg-secondary-800">
                         <Icon icon="clarity:employee-solid" className="inline-block mr-2 text-base" />
                             Hire an expert</button>
                         </Link>
