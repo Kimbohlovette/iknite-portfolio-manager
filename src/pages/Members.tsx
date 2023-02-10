@@ -23,7 +23,7 @@ function Members() {
     <div className="my-8 min-h-screen">
         <h1 className="text-2xl font-medium my-2">Members</h1>
         <div className="flex justify-between items-start">
-            <div className="filters flex flex-row flex-wrap gap-2 [&>*:focus]:shadow [&>*:focus]:shadow-purple-200 [&>*:focus]:border-purple-400">
+            <div className="filters flex flex-row flex-wrap gap-2 [&>*:focus]:shadow [&>*:focus]:shadow-primary-200 [&>*:focus]:border-primary-400">
                 <input
                 type="search"
                 name="search"
