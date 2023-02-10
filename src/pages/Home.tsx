@@ -38,7 +38,7 @@ function Home() {
                         </span>
                         <span className="inline-block my-4 w-3/4 font-bold text-slate-700">Get to know more about Iknite Space talents and their projects here.</span>
                         <Link to="/members">
-                            <button className="block text-sm py-2 px-4 my-4 bg-secondary-900 text-slate-50 rounded-md shadow-sm hover:bg-secondary-800">
+                            <button className="block text-sm py-2 px-4 my-4 bg-secondary-900/80 backdrop-blur-sm text-slate-100 rounded-md shadow-sm hover:bg-secondary-800">
                         <Icon icon="clarity:employee-solid" className="inline-block mr-2 text-base" />
                             Hire an expert</button>
                         </Link>
