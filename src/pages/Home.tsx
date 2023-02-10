@@ -109,13 +109,13 @@ function Member(props: { member: MemberType }) {
             <h1 className="font-semibold text-slate-800 text-lg">{props.member.name}</h1>
             <span className="text-sm text-slate-600">{"Lead "+ props.member.dept}</span>
             <div className="flex flex-row gap-2">
-                <div className="reviews flex flex-row text-purple-900 py-1">
+                <div className="reviews flex flex-row text-secondary-900 py-1">
                 <Icon icon="material-symbols:star" />
                 <Icon icon="material-symbols:star" />
                 <Icon icon="material-symbols:star" />
                 <Icon icon="material-symbols:star" />
                 </div>
-                <span className="text-purple-800 text-sm">( 25 reviews)</span>
+                <span className="text-primary-600 text-sm">( 25 reviews)</span>
             </div>
         </div>
         <Link to={"/members/"+ props.member.id } className="absolute top-0 left-0 h-full w-full">  </Link>
@@ -139,7 +139,7 @@ function Project(props:{
             <p className="text-sm text-slate-600">{props.project.projectDesc}</p>
         </div>
         <Link to={"/projects/"+ props.project.projectId}>
-        <button className="text-sm bg-purple-600 hover:bg-purple-900 py-2 my-2 w-1/2 text-slate-100 rounded-md">View</button>
+        <button className="text-sm bg-primary-800 hover:bg-primary-300 hover:text-slate-800 py-2 my-2 w-1/2 text-slate-100 rounded-md font-medium">View</button>
         </Link>
     </div>
     );
