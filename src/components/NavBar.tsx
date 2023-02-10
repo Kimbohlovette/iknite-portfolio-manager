@@ -1,5 +1,4 @@
 import React from "react";
-import { GiDiamonds } from "react-icons/gi";
 import { CiLogout } from "react-icons/ci";
 import { CiLogin } from "react-icons/ci";
 import { AiOutlineClose } from "react-icons/ai";
