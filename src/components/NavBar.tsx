@@ -9,6 +9,8 @@ import { useAppSelector, useAppDispatch } from "../app/hooks";
 import { useState } from "react";
 import { authActions } from "../app/store";
 
+// eslint-disable-next-line @typescript-eslint/no-var-requires
+const logo = require("../shared/logo.png");
 export default function NavBar(): JSX.Element {
     const isAuthenticated = useAppSelector(state=> state.auth.isAuthenticated);
     const dispatch = useAppDispatch();
@@ -33,13 +35,7 @@ export default function NavBar(): JSX.Element {
         <header className="relative flex flex-row justify-between items-center bg-primary-900 py-4 text-white px-4 sm:px-8">
             <Link to="/">
                 <div className="brand flex flex-row justify-center gap-1 items-center font-black text-primary-50">
-                    <span className="">
-                    <GiDiamonds className="-rotate-[30deg] text-xl text-secondary-900" />
-                    </span>
-                    <div>
-                        <span className="leading-3">iknite</span>
-                        <span className="leading-3">.space</span>
-                    </div>
+                    <img src={logo} className="max-h-14" alt="" />
                 </div>
             </Link>
             {
