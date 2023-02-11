@@ -11,7 +11,6 @@ import NavBar from "./components/NavBar";
 import Home from "./pages/Home";
 import Projects from "./pages/Projects";
 import Members from "./pages/Members";
-import Iknite from "./pages/Iknite";
 import Error from "./pages/Error";
 import MemberProfile from "./pages/MemberProfile";
 import {
@@ -58,7 +57,6 @@ const router = createBrowserRouter(
                     path: "/members",
                     element: <Members />
                 },
-                {   path: "/iknite", element: <Iknite />},
                 {
                     path: "/members/:memberId",
                     element: <MemberProfile />,

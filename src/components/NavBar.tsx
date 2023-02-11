@@ -44,7 +44,7 @@ export default function NavBar(): JSX.Element {
                         <li onClick={()=>handleMobileNavigation("/")}>Home</li>
                         <li onClick={()=>handleMobileNavigation("/projects")}>Projects</li>
                         <li onClick={()=>handleMobileNavigation("/members")}>Members</li>
-                        <li onClick={()=>handleMobileNavigation("/iknite")}>Iknite</li>
+                        <a href="https://iknite.space" target="_blank" rel="noreferrer"><li>Iknite</li></a>
                     </ul>
                     {
                         isAuthenticated?
@@ -72,9 +72,9 @@ export default function NavBar(): JSX.Element {
                     <Link to="/members">
                         <li className="hover:bg-purple-100/80 hover:backdrop-blur-sm rounded-md hover:text-slate-800 px-4 py-2">Members</li>
                     </Link>
-                    <Link to="/iknite">
+                    <a href="https://iknite.space" target="_blank" rel="noreferrer">
                         <li className="hover:bg-purple-100/80 hover:backdrop-blur-sm rounded-md hover:text-slate-800 px-4 py-2">Iknite</li>
-                    </Link>
+                    </a>
                 </ul>
             </nav>
             <div className="auth hidden  sm:flex flex-row items-center gap-8">

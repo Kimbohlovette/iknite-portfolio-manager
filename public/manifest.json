@@ -1,9 +1,9 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "Iknite.Space",
+  "name": "Iknite Space Portfolio Manager",
   "icons": [
     {
-      "src": "favicon.ico",
+      "src": "https://iknite.space/wp-content/uploads/2022/03/cropped-Iknite.space-favicon-192x192.png",
       "sizes": "64x64 32x32 24x24 16x16",
       "type": "image/x-icon"
     },
