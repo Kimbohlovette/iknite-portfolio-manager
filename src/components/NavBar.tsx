@@ -63,17 +63,17 @@ export default function NavBar(): JSX.Element {
             <nav className="hidden sm:block">
                 <ul className="flex flex-row gap-4 font-medium">
                     <Link to="/">
-                        <li className="hover:bg-purple-100/80 hover:backdrop-blur-sm rounded-md hover:text-slate-800 px-4 py-2">Home</li>
+                        <li className="hover:backdrop-blur-sm rounded-md hover:text-secondary-600 px-4 py-2">Home</li>
                     </Link>
                     <Link to="/projects">
-                        <li className="hover:bg-purple-100/80 hover:backdrop-blur-sm rounded-md hover:text-slate-800 px-4 py-2">Projects</li>
+                        <li className="hover:backdrop-blur-sm rounded-md hover:text-secondary-600 px-4 py-2">Projects</li>
                     </Link>
 
                     <Link to="/members">
-                        <li className="hover:bg-purple-100/80 hover:backdrop-blur-sm rounded-md hover:text-slate-800 px-4 py-2">Members</li>
+                        <li className="hover:backdrop-blur-sm rounded-md hover:text-secondary-600 px-4 py-2">Members</li>
                     </Link>
                     <a href="https://iknite.space" target="_blank" rel="noreferrer">
-                        <li className="hover:bg-purple-100/80 hover:backdrop-blur-sm rounded-md hover:text-slate-800 px-4 py-2">Iknite</li>
+                        <li className="hover:backdrop-blur-sm rounded-md hover:text-secondary-600 px-4 py-2">Iknite</li>
                     </a>
                 </ul>
             </nav>
