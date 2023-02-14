@@ -24,7 +24,7 @@ import Auth from "./pages/Auth";
 
 const MyApp = (): JSX.Element =>{
         return (
-            <div>
+            <div className="font-poppins">
                 <NavBar />
                 <div className="px-2 sm:px-8 lg:px-16 xl:px-20">
                     <Outlet />
